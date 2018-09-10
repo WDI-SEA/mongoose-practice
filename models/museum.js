@@ -12,4 +12,4 @@ const museumSchema = new mongoose.Schema({
 // TODO: Use schema to create model
 // TODO: Export Museum Model
 
-module.exports = mongoose.model('Mesuem')
+module.exports = mongoose.model('Mesuem', museumSchema);
