@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // TODO: Connect to Mongo database
-mongoose.connect(process.env.MONGOOSE_URL || 'mongodb://localhost:27017/hellowdi20', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGOOSE_URL || 'mongodb://localhost:27017/mongoose-practice', { useNewUrlParser: true });
 
 // TODO: Require your other models, and export them
 module.exports.Museum = require('./museum');
