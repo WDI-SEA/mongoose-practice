@@ -2,6 +2,13 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
+const creatorSchema = new mongoose.Schema({
+	firstName: String,
+	lastName: String,
+	image: String,
+	birthyear: Number,
+	deathyear: Number
+});
 
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
