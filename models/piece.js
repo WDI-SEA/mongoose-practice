@@ -12,7 +12,13 @@ const creatorSchema = new mongoose.Schema({
 
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
+const pieceSchema = new mongoose.Schema({
+	name: String,
+	image: String,
+	creators: [creatorSchema],
+	museum: { type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}
 
+})
 // TODO: Use Piece schema to create Piece model
 
 // TODO: Export Piece Model
