@@ -10,6 +10,7 @@ const db = require('../models');
 // Declare Routes
 router.get('/', (req, res) => {
   db.Piece.find()
+  .populate('museum')
   .then(pieces => {
 	res.render('pieces/index', { pieces: pieces });
   })
