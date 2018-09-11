@@ -44,9 +44,11 @@
 	
 	<div class="form-group">
 		<label for="museum">Museum:</label>
-		<select name="museum" id="museum">
+		<select name="museum" id="museum" class="form-control">
 			<% museums.forEach(m => { %>
-
+				<option value="<%= m.id%>">
+					<%= m.name %>
+				</option>
 			<% }); %>
 		</select>
 	</div>
