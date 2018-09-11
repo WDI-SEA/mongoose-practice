@@ -3,6 +3,7 @@ const express = require('express');
 
 // Declare router
 const router = express.Router();
+const db = require('../models');
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
@@ -15,8 +16,11 @@ router.post('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  // Replace stub route with page that renders form for adding new piece
+  db.Museum.find()
+    .then(museums => museums.map(x => x.name))
+    .then(museumNames =>   res.render('pieces/new', { museumNames }))
+    .catch(err => console.log(err));
 });
 
 router.get('/:id', (req, res) => {
