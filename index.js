@@ -6,6 +6,9 @@ const expressEjsLayouts = require('express-ejs-layouts');
 // Declare an app variable
 const app = express();
 
+const db = require('./models');
+
+
 // Set the view engine
 app.set('view engine', 'ejs');
 
@@ -24,4 +27,3 @@ app.get('/', (req, res) => {
 
 // TODO: Listen
 app.listen(3000);
-

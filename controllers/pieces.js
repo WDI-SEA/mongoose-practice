@@ -26,3 +26,17 @@ router.get('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+
+router.get('/new', (req, res) => {
+  db.piece.create({
+    req.body: req.body
+  })
+  .then(result => {
+    res.send('success');
+  })
+  .catch(err => {
+    console.log(err);
+    res.send('error, check your logs');
+  });
+});
