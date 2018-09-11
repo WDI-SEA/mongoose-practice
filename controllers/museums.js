@@ -5,15 +5,16 @@ const express = require('express');
 const router = express.Router();
 
 //declare refrence to models
-const db = require('./models');
+const db = require('../models');
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  db.museum.find()
+  db.Museum.find()
   .then(museums => {
   res.render('museums/index', {museums: museums});
 })
   .catch(err => {
+  	console.log(err);
   	res.render('error');
   });
 });
