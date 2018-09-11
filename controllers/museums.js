@@ -20,10 +20,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
+  // Replace stub route with page that renders form for adding new museum
   db.Museum.create(req.body)
   .then(result => {
-    res.redirect('/museums');
+    res.redirect(`/museums/${result.id}`);
   })
   .catch(err => {
     consoler.log('Error Message', err);
@@ -32,8 +32,15 @@ router.post('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.render('museums/new');
+  // Replace stub route with page that renders form for adding new museum
+  db.Museum.findById(req.params.id)
+  .then(museum => {
+    res.render('museums/show', { museum: museum });
+  })
+  .catch(err => {
+    consoler.log('Error Message', err);
+    res.render('error');
+  });
 });
 
 router.get('/:id', (req, res) => {
