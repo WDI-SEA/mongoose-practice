@@ -14,6 +14,7 @@ const creatorSchema = new mongoose.Schema({
 // HINT: include a creator field for using the Creator schema
 const pieceSchema = new mongoose.Schema({
 	name: String,
+	originCountry: String,
 	image: String,
 	museum: {type: mongoose.Schema.Types.ObjectId, ref: 'Museum'},
 	creator: creatorSchema

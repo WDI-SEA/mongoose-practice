@@ -21,13 +21,21 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+  db.Piece.create({
+  	name: req.body.name
+  })
 });
 
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  db.Museum.find()
+  .then(museums => {
+  	res.render('pieces/new', {museums: museums});
+  })
+  .catch(err => {
+  	console.log(err);
+  	res.render('error');
+  });
 });
 
 router.get('/:id', (req, res) => {
