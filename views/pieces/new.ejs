@@ -1,3 +1,37 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" name="name" id="name" />
+  </div>
+  <div class="form-group">
+    <label for="image">Image</label>
+    <input type="text" class="form-control" name="image" id="image" />
+  </div>
+  <div class="form-group">
+    <label for="museum">Museum</label>
+    <select class="form-control" name="museum" id="museum">
+      <% museums.forEach(museum => { %>
+        <option value="<%= museum.id %>"><%= museum.name %></option>
+      <% }); %>
+    </select>
+  </div>
+  <fieldset>
+    <legend>Creator:</legend>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" name="firstName" id="firstName" />
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" name="lastName" id="lastName" />
+      <label for="creatorImage">Creator Image</label>
+      <input type="text" class="form-control" name="creatorImage" id="creatorImage" />
+      <label for="birthYear">Birth Year</label>
+      <input type="text" class="form-control" name="birthYear" id="birthYear" />
+      <label for="deathYear">Death Year</label>
+      <input type="text" class="form-control" name="deathYear" id="deathYear" />
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-light">Submit</button>
+</form>

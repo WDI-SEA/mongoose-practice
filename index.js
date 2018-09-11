@@ -23,5 +23,5 @@ app.get('/', (req, res) => {
 });
 
 // TODO: Listen
-app.listen(3000);
+app.listen(3000, () => console.log('Listening on three stacks'));
 
