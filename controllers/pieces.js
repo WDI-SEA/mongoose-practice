@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+  res.render('pieces/new');
 });
 
 router.get('/new', (req, res) => {
