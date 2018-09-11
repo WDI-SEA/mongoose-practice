@@ -1,3 +1,20 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+
+<form method="POST" action="/piece">
+	<div class="form-group">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" class="form-control" placeholder="name of piece">
+	</div>
+	<div class="form-group">
+		<label for="image">Image URL:</label>
+		<input type="text" id="image" name="image" class="form-control" placeholder="link to pic of piece">
+	</div>
+
+	<div class="form-group">
+		<label for="originCountry">Country of Origin:</label>
+		<input type="text" id="originCountry" name="originCountry" class="form-control" placeholder="origin country">
+	</div>
+	<input type="submit" value="Register Piece" class="btn btn-success">
+	</div>

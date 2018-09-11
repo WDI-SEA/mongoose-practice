@@ -1,7 +1,7 @@
 <h2 class="text-center">Museums List</h2>
 
 <%if(museums) {%>
-	<%museum.forEach( m => {%>
+	<%museums.forEach( m => {%>
 		<div>
 			<h4 class="text-center">
 				<a href="/museums/<%=m.id%>"><%=m.name%></a> &mdash; (<%=m.city%>, <%=m.country%>)
