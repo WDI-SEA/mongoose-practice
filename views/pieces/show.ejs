@@ -1,2 +1,9 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h1><%=piece.name%></h1>
+
+<img src="<%=piece.image%>">
+
+<h3>Creator: <%=piece.creator.firstname%>, <%=piece.creator.lastname%></h3>
+<h3><%=piece.creator.birthyear%> - <%=piece.creator.deathyear%></h3>
+<img src="<%=piece.creator.image%>">
+
+<h3>Found in <a href="/museums/<%=piece.museum.id%>"><%=piece.museum.name%></a></h3>
