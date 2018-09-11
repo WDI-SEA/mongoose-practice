@@ -6,13 +6,13 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
-  // db.Museum.find().then( result => {
-  //   res.render('museums/index', { result });
-  // }).catch(err => {
-  //   console.log(err);
-  //   res.send(err);
-  // })
+  // Replace stub route with page that renders list of all museums
+  db.Museum.find().then( results => {
+    res.render('museums/index', { results });
+  }).catch(err => {
+    console.log(err);
+    res.send(err);
+  })
   
 });
 
