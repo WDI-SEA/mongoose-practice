@@ -1,3 +1,8 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h1><%=museum.name%></h1>
+<h3>Location: <%=museum.city%>, <%=museum.country%></h3>
+<img src="<%=museum.image%>">
+
+<h2>Pieces:</h2>
+<% pieces.forEach(piece => { %>
+    <h3><a href="/pieces/<%=piece.id%>"><%=piece.name%></a></h3>
+<% }) %>
