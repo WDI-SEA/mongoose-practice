@@ -1,0 +1,27 @@
+
+.reasonable-image-size {
+	max-width: 500px;
+	height: auto;
+}
+
+.reasonable-image-height {
+  max-height: 200px;
+  width: auto;
+}
+
+.image-container {
+	text-align: center;
+	margin: 20px 0;
+}
+
+
+.custom-fieldset {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 10px 30px; 
+	margin-bottom: 15px;
+}
+
+.custom-legend {
+	width: inherit;
+}

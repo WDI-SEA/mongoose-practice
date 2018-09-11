@@ -11,3 +11,20 @@
 
 <p><a href="/pieces/<%='the_actual_id_goes_here'%>">Night's Watch</a> (Rijksmuseum - Amsterdam)</p>
 
+
+<% if(pieces && pieces.length > 0) {  %> 
+	<% pieces.forEach(p => { %>
+		<div>
+			<a href="/pieces/ <%= p.id %>"> <%= p.name %></a>
+
+			(<%= p.museum.name %> &mdash; <%= p.museum.city %> <%= p.museum.country %>)
+		</div>
+	<%});%>
+<% } else { %>
+	<h3> Nothing to see here ...</h3>
+	<p> 
+		try adding a new piece on the 
+		<a href="/pieces/new"> piece registration page </a>
+	</p>
+
+	<% } %>

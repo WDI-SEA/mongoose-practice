@@ -3,3 +3,20 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <p>TODO: Add a forEach loop and show the names of all museums</p>
 <p>The name should be a link to the museum show page</p>
+
+	<% if (museums && museums.length > 0 ) { %>
+		<% museums.forEach(m => { %>
+		<div>    
+			<h4 class="text-center"> 
+				<a href="/museums/<%= m.id %>"> <%= m.name %> </a> &mdash; (<%= m.city %>, <%= m.country %>)
+			</h4>
+		</div>
+	<% }); %>
+
+<% } else { %>
+	<h4> No museums were found! Bummer! </h4>
+	<p> 
+		Try registering some museums on the 
+		<a href="/museums/new"> Museum Registration Page </a>
+	</p>
+<% } %>

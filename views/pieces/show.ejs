@@ -1,2 +1,39 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+
+<h2 class="text-center">Show a specific Piece</h2>
+
+
+<div class="image-container">    
+	<img alt="pic" src="<%= piece.image %>" class="reasonable-image-size">
+</div>
+
+
+<div class="row">
+	<div class="col-6">
+		<h4 class="text-center text-info">Description</h4>
+		<p>  
+		<%= piece.name %> is located at <%= piece.museum.name %> in 
+		<%= piece.museum.city %>, <%= piece.museum.country %>. This piece 
+		originated in <%= piece.originCountry %>
+		</p> 
+	</div>
+
+	<div class="col-6">
+		<h4 class="text-center text-info">About the Creator</h4>
+		<% if(piece.creator) {%>
+			<p>
+				<%= piece.creator.firstname %> <%= piece.creator.lastname %>
+				lived from <%= piece.creator.birthyear %> to <%= piece.creator.deathyear %>
+			</p>
+			<img alt="creator" src="<%= piece.creator.image %>" class="reasonable-image-height">
+			<% } else { %>
+		<p>The Creator is Unknown!</p>
+		<% } %>
+	</div>
+
+</div>
+
+
+
+
+

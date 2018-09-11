@@ -4,26 +4,32 @@
 <div class="container">
 	<div class = "row">
 
-		<h2 class="text-center text-primary">Register a New Museum</h2>
-		<form class = "col s12 m8" method="POST" action="/vehicles">
-			
+		<form class = "col s12" method="POST" action="/museums">
+			<h2 class="text-center text-primary">Register a New Museum</h2>
+
 			<div class="form-group">
 				<label for="name">Name:</label>
-				<input type="text" name="Name" placeholder="name?" class="form-control" required>
+				<input type="text" id="name" name="name" placeholder="name of museum" class="form-control" required>
 			</div>
 
 			<div class="form-group">
-				<label for="name">Year:</label>
-				<input type="number" name="year" placeholder="year?" class="form-control">
+				<label for="name">Image URL:</label>
+				<input type="text" id="image" name="image" placeholder="link to pic of museum" class="form-control">
+			</div>
+
+
+			<div class="form-group">
+				<label for="name">City:</label>
+				<input type="text" id="city" name="city" placeholder="location (city)" class="form-control">
 			</div>
 
 			<div class="form-group">
-				<label for="name">Location:</label>
-				<input type="text" name="Location" placeholder="location?" class="form-control" required>
+				<label for="name">Country:</label>
+				<input type="text" id="country" name="country" placeholder="location (country)" class="form-control">
 			</div>
 			
 			<br>
-			<input type="submit" value="Add museum" class="btn btn-primary">
+			<input type="submit" value="Register Museum" class="btn btn-primary">
 
 		</form>
 		
