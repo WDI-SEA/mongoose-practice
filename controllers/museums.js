@@ -8,7 +8,13 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.Museum.find()
+  .then( museums => {
+  	res.render('museums/index', { museums: museums });
+  })
+  .catch( error => {
+  	res.send(error);
+  });
 });
 
 router.post('/', (req, res) => {
