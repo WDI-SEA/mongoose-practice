@@ -18,8 +18,8 @@
 	</div>
 	
 	<fieldset class="custom-fieldset">
-		<legend class="custom-legend"></legend>
-		
+		<legend class="custom-legend">Arist</legend>
+
 		<div class="form-group">
 	      <label for="creator_firstname">First Name:</label>
 	      <input type="text" id="creator_firstname" name="creator_firstname" class="form-control" placeholder="creator firstname">
@@ -43,13 +43,6 @@
 	</fieldset>
 
 
-	<div class="form-group">
-    	<label for="museum">Museum:</label>
-    	<select class="form-control" name="museum">
-	    	<% museums.forEach(museum => { %>
-	    		<option value="<%= museum.id %>"><%= museum.name %></option>
-	    	<% }); %>
-   		</select>
-  	</div>
+
   	<button type="submit" class="btn btn-primary">Add Art Piece to Museum</button>
 </form>
