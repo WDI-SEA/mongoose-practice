@@ -9,12 +9,28 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.Museum.find()
+  	.then( museums => {
+  		console.log('My museums are: ', museums)
+  		res.render('museums/index', {building: museums});
+  	}).catch(err => {
+  		console.log(err);
+  		res.send(err);
+  	})
+  
 });
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  db.Museum.create(req.body)
+  	.then( newMuseum => {
+  		console.log('SUCCESS!!!!')
+  		console.log('The museum info is: ', newMuseum)
+  		res.redirect('/museums')
+  	}).catch(err => {
+  		console.log(err);
+  		res.send(err)
+  	});
 });
 
 router.get('/new', (req, res) => {

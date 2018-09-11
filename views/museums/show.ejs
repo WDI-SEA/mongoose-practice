@@ -1,3 +1,17 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <h2>TODO: Show a specific Museum</h2>
 <p>Show a list of pieces in this museum</p>
+
+<% newMuseum.forEach(function(museum){%>
+		<div class="card shadow">
+		  <div class="card-body">
+		  	<img src="<%= museum.image %>" />
+		    <h5 class="card-title"><%= museum.name %></h5>
+		    <h6 class="card-subtitle mb-2 text-muted"><%= museum.city %></h6>
+		    <p class="card-text" id="card-location"><%= museum.city %></p>
+		    <a href="/profile/edit/<%= sighting.id %>" class="btn btn-warning">Edit</a>
+		    <a href="/profile/<%= sighting.id %>" id="delete" class="btn btn-danger delete-btn">Delete</a>
+		  </div>
+		</div>
+		<br>
+	<%})%>
