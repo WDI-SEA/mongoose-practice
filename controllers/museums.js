@@ -5,9 +5,14 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.museum.find().then(allMuseums => {
+  res.render('museums/index', {museums: allMuseums});
+}).catch(function(err){
+  res.render('error')
+})
 });
+  // TODO: Replace stub route with page that renders list of all museums
+
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
@@ -26,3 +31,16 @@ router.get('/:id', (req, res) => {
 });
 
 module.exports = router;
+
+router.get('/new', (req, res) => {
+  db.museum.create({
+    req.body: req.body
+  })
+  .then(result => {
+    res.send('success');
+  })
+  .catch(err => {
+    console.log(err);
+    res.send('error, check your logs');
+  });
+});

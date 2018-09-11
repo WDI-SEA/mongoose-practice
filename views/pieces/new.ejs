@@ -1,3 +1,24 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST">
+  <div class="row">
+    <div class="input-field col s12 m3">
+    <label for="piece">Piece name</label>
+    <input type="text" id="piece" name="piece" class="validate" required>
+    </div>
+    <div class="input-field col s12 m3">
+    <label for="creator">Creator</label>
+    <input type="text" id="creator" name="creator" class="validate" required>
+    </div>
+    <div class="input-field col s12 m3">
+    <label for="museum">Museum its located in</label>
+    <input type="text" id="museumLocation" name="museum" class="validate" required>
+    </div>
+    <div class="input-field col s12 m3">
+    <label for="image">Image</label>
+    <input type="text" id="pieceImage" name="image" class="validate" required>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit">Submit
+</form>
