@@ -45,7 +45,6 @@ router.get('/:id', (req, res) => {
   //  and all the info about it's creator and the museum it's located in
   db.Piece.findById(req.params.id).populate('museum')
     .then(piece => {
-      console.log(piece);
       res.render('pieces/show', {piece: piece});
     }).catch(error => res.send(error));
 });
