@@ -4,6 +4,7 @@ const express = require('express');
 // Declare router
 const router = express.Router();
 
+// Declare reference to models
 const db = require('../models');
 
 router.get('/', (req, res) => {
@@ -12,8 +13,9 @@ router.get('/', (req, res) => {
   .then( museums => {
   	res.render('museums/index', { museums: museums });
   })
-  .catch( error => {
-  	res.send(error);
+  .catch( err => {
+  	console.log('Error Message', err);
+  	res.render('error');
   });
 });
 

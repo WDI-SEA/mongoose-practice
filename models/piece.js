@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
 const creatorSchema = new mongoose.Schema({
-	firstname: String,
-	lastname: String,
+	firstName: String,
+	lastName: String,
 	image: String,
-	birthyear: Number,
-	deathyear: Number
+	birthYear: Number,
+	deathYear: Number
 });
 
 // TODO: Create Piece Schema
@@ -15,7 +15,8 @@ const creatorSchema = new mongoose.Schema({
 const pieceSchema = new mongoose.Schema({
 	name: String,
 	image: String,
-	creator: [creatorSchema],
+	originCountry: String,
+	creator: creatorSchema,
 	museum: { type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}
 
 });
