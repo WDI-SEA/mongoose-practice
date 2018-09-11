@@ -4,9 +4,20 @@ const express = require('express');
 // Declare router
 const router = express.Router();
 
+// Declare a reference to the models
+const db = require('../models');
+
+// Declare routes
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+  db.Piece.find()
+  .then(pieces => {
+  	 res.render('pieces/index', { pieces: pieces });
+  })
+ .catch(err => {
+ 	console.log(err);
+ 	res.render('error');
+ })
 });
 
 router.post('/', (req, res) => {
