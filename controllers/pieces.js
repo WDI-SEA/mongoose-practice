@@ -60,9 +60,15 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+  db.Piece.findById(req.params.id)
+  .populate('museums')
+  .then(piece => {
+    res.render('pieces/show', { piece: piece });
+  })
+  .catch(err => {
+    console.log(err);
+    res.render('error');
+  });
 });
 
 module.exports = router;
