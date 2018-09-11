@@ -9,8 +9,15 @@ const db = require('../models');
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
-  
-  res.render('pieces/index');
+  db.Piece.find()
+  .populate('museum')
+  .then(result => {
+  	res.render('pieces/index', {pieces: pieces});
+  })
+  .catch(err => {
+  	console.log(err);
+  	res.render('error');
+  });
 });
 
 router.post('/', (req, res) => {
