@@ -11,15 +11,32 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+  // Replace stub route with page that renders form for adding new piece
+  const { name, image, museum, firstName, lastName, creatorImage, birthYear, deathYear } = req.body;
+  db.Piece.create({
+    name: name,
+    image: image,
+    museum: museum,
+    image: image,
+    creator: {
+      firstName: firstName,
+      lastName: lastName,
+      image: creatorImage,
+      birthYear: birthYear,
+      deathYear: deathYear,
+    }
+  }).then(result => {
+    res.redirect('/pieces');
+  }).catch(err => {
+    console.log(err);
+    res.send(err);
+  })
 });
 
 router.get('/new', (req, res) => {
   // Replace stub route with page that renders form for adding new piece
   db.Museum.find()
-    .then(museums => museums.map(x => x.name))
-    .then(museumNames =>   res.render('pieces/new', { museumNames }))
+    .then(museums => res.render('pieces/new', { museums }))
     .catch(err => console.log(err));
 });
 
