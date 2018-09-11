@@ -22,13 +22,13 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
   db.Museum.create(req.body)
-  	.then( newMuseum => {
-  		console.log('success')
-  		res.redirect('/museums')
+  	.then( result => {
+  		console.log(result)
+  		res.redirect(`/museums/${result.id}`)
   	})
   	.catch(err => {
-  		console.log(err);
-  		res.send(err)
+  		console.log('error message', err);
+  		res.render('error')
   	});
 });
 
