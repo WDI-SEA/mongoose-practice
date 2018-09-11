@@ -19,11 +19,10 @@ const pieceSchema = new mongoose.Schema({
 	museum: { type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}
 
 });
-// TODO: Use Piece schema to create Piece model
-const pieceModel = mongoose.model('Piece', pieceSchema);
 
+// TODO: Use Piece schema to create Piece model
 // TODO: Export Piece Model
-module.exports = pieceModel;
+module.exports = mongoose.model('Piece', pieceSchema);
 
 // NOTE: You don't need to worry about Creator schema. You don't need to
 // create a model for it or export it. This is because it lives inside

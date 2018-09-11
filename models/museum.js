@@ -10,7 +10,5 @@ const museumSchema = new mongoose.Schema({
 });
 
 // TODO: Use schema to create model
-const museumModel = mongoose.model('Museum', museumSchema)
-
 // TODO: Export Museum Model
-module.exports = museumModel;
+module.exports = mongoose.model('Museum', museumSchema);
