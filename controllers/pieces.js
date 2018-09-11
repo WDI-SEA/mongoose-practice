@@ -21,8 +21,26 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+	db.Piece.create({
+		name: req.body.name,
+		image: req.body.image,
+		originCountry: req.body.originCountry,
+		museum: req.body.museum,
+		creator: {
+			firstName: req.body.creator_firstName,
+			lastName: req.body.creator_lastName,
+			image: req.body.creator_image,
+			birthYear: req.body.creator_birthYear,
+			deathYear: req.body.creator_deathYear
+		}
+	})
+	.then(result => {
+		res.redirect(`/pieces/${result.id}`);
+	})
+	.catch(err => {
+		console.log(err);
+		res.render('error');
+	});
 });
 
 router.get('/new', (req, res) => {
