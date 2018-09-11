@@ -1,24 +1,17 @@
 // Require Mongoose node module
 const mongoose = require('mongoose');
 var router = express.Router();
-var express = require('express');
 
-router.get('/',(req, res) =>{
-		db.Piece.findAll().then(function(f){
-	}).catch(function(err){
-		res.render('404');
-	});
-});
+// TODO: Create Creator Schema
 
-router.post('/', (req,res) => {
-	db.Piece.create({
-		name:req.body.name,
-		image:req.body.image,
-		museum: req.body.museum
-	}).then(result =>{
-		res.redirect('/pieces');
-	}).catch(err => {
-		console.log(err);
-		res.render('error');
-	})
-});
+// TODO: Create Piece Schema
+// HINT: include a creator field for using the Creator schema
+
+// TODO: Use Piece schema to create Piece model
+
+// TODO: Export Piece Model
+
+
+// NOTE: You don't need to worry about Creator schema. You don't need to
+// create a model for it or export it. This is because it lives inside
+// the Piece model, so that takes care of it all! Yay for embedded schemas!
