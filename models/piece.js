@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
 const creatorSchema = new mongoose.Schema({
-	firstName: String,
-	lastName: String,
+	firstname: String,
+	lastname: String,
 	image: String,
 	birthyear: Number,
 	deathyear: Number
@@ -15,7 +15,7 @@ const creatorSchema = new mongoose.Schema({
 const pieceSchema = new mongoose.Schema({
 	name: String,
 	image: String,
-	creators: [creatorSchema],
+	creator: [creatorSchema],
 	museum: { type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}
 
 });
