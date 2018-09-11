@@ -1,3 +1,20 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h2 class="text-center"><%= museum.name %></h2>
+
+<div class="image-container">
+	<img alt="museum pic" src="<%= museum.image %>" class="reasonable-image-size">
+</div>
+
+<div class="row">
+	<div class="col-6">
+		<h3>Description</h3>
+		<p>
+			<%= museum.name %> is located in <%= museum.city %>, <%= museum.country %>.
+		</p>
+	</div>
+	<div class="col-6">
+		<h3>Most Famous Pieces</h3>
+		<p>
+			TO DO
+		</p>
+	</div>
+</div>

@@ -21,7 +21,15 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  db.Museum.create(req.body)
+  .then(result =>{
+  	console.log(result);
+  	res.redirect(`/museums/${result.id}`);
+  })
+  .catch(err => {
+  	console.log(err);
+  	res.render('error');
+  });
 });
 
 router.get('/new', (req, res) => {
@@ -30,9 +38,14 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  db.Museum.findById(req.params.id)
+  .then(museum => {
+  	res.render('museums/show', {museum: museum});
+  })
+  .catch(err => {
+  	console.log(err);
+  	res.render('error');
+  });
 });
 
 module.exports = router;
