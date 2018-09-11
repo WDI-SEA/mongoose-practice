@@ -6,8 +6,14 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+  // Replace stub route with page that renders list of all pieces
+  db.Piece.find()
+    .populate('museum')
+    .then(pieces => res.render('pieces/index', { pieces }))
+    .catch(err => {
+      console.log(err);
+      res.send(err);
+    });
 });
 
 router.post('/', (req, res) => {
