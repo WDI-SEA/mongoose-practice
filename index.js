@@ -19,7 +19,14 @@ app.use('/pieces', require('./controllers/pieces'));
 
 // Make home route
 app.get('/', (req, res) => {
-  res.render('home');
+	db.User.find()
+	.then(users => {
+		res.send(users);
+	})
+	.catch(err => {
+		console.log(err);
+		res.send(err);
+	});
 });
 
 // TODO: Listen
