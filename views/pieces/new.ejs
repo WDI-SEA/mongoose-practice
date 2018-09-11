@@ -41,8 +41,15 @@
 	      <input type="number" id="creator_deathyear" name="creator_deathyear" class="form-control" placeholder="creator death year">
 	    </div>
 	</fieldset>
+	
+	<div class="form-group">
+		<label for="museum">Museum:</label>
+		<select name="museum" id="museum">
+			<% museums.forEach(m => { %>
 
-
+			<% }); %>
+		</select>
+	</div>
 
   	<button type="submit" class="btn btn-primary">Add Art Piece to Museum</button>
 </form>
