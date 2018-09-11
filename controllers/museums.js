@@ -4,6 +4,8 @@ const express = require('express');
 // Declare router
 const router = express.Router();
 
+const db = require('../models');
+
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
   res.render('museums/index');
@@ -11,7 +13,15 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.render('museums/new');
+  db.Museum.create(req.body)
+  	.then( newMuseum => {
+  		console.log('success')
+  		res.redirect('/museums')
+  	})
+  	.catch(err => {
+  		console.log(err);
+  		res.send(err)
+  	});
 });
 
 router.get('/new', (req, res) => {
