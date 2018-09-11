@@ -21,7 +21,14 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  db.Museum.create(req.body)
+  .then(result => {
+    res.redirect('/museums');
+  })
+  .catch(err => {
+    consoler.log('Error Message', err);
+    res.render('error');
+  });
 });
 
 router.get('/new', (req, res) => {

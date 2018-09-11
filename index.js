@@ -17,17 +17,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/museums', require('./controllers/museums'));
 app.use('/pieces', require('./controllers/pieces'));
 
-// Make home route
-app.get('/', (req, res) => {
-	db.User.find()
-	.then(users => {
-		res.send(users);
-	})
-	.catch(err => {
-		console.log(err);
-		res.send(err);
-	});
-});
 
 // TODO: Listen
 app.listen(3000);
