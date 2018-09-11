@@ -23,28 +23,29 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
- db.Piece.create({
-  name: req.body.name,
-  image: req.body.image,
-  originCountry: req.body.originCountry,
-  museum: req.body.museum,
-  creator: {
-    firstname: req.body.creator_firstname,
-    lastname: req.body.creator_lastname,
-    image: req.body.creator_image,
-    birthyear: req.body.creator_birthyear,
-    deathyear: req.body.creator_deathyear
-  }
- })
- .then(result => {
-    res.redirect(`/pieces/${result.id}`)
- })
- .catch(err => {
+  db.Piece.create({
+    name: req.body.name,
+    image: req.body.image,
+    originCountry: req.body.originCountry,
+    museum: req.body.museum,
+    creator: {
+      firstname: req.body.creator_firstname,
+      lastname: req.body.creator_lastname,
+      image: req.body.creator_image,
+      birthyear: req.body.creator_birthyear,
+      deathyear: req.body.creator_deathyear
+    }
+  })
+  .then(result => {
+    res.redirect(`/pieces/${result.id}`);
+  })
+  .catch(err => {
     console.log(err);
     res.render('error');
   });
 });
+
+
 
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
