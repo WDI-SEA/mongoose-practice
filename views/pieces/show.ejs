@@ -1,2 +1,10 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2> <%= piece.name %> </h2>
+<img src="<%= piece.image %>" alt="<%= piece.name %>" />
+
+<p>On display at <%= piece.museum.name %></p>
+
+<h4>Creator: <%= piece.creator.firstName %> <%= piece.creator.lastName %></h4>
+<img src="<%= piece.creator.image %>" alt="<%= piece.creator.firstName %> <%= piece.creator.lastName %>" />
+<small>Born: <%= piece.creator.birthYear %></small>
+<small>Died: <%= piece.creator.deathYear %></small>

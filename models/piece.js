@@ -16,7 +16,7 @@ const pieceSchema = new mongoose.Schema({
   museum: { type: mongoose.Schema.Types.ObjectId, ref: 'Museum'},
   // HINT: include a creator field for using the Creator schema
   // Use Piece schema to create Piece model
-  creator: [creatorSchema],
+  creator: creatorSchema,
 });
 
 // Export Piece Model
