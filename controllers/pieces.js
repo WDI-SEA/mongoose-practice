@@ -22,7 +22,17 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   db.Piece.create({
-  	name: req.body.name
+  	name: req.body.name,
+  	image: req.body.image,
+  	originCountry: req.body.originCountry,
+  	museum: req.body.museum,
+  	creator: {
+  		firstName: req.body.firstName,
+  		lastName: req.body.lastName,
+  		birthYear: req.body.birthYear,
+  		deathYear: req.body.deathYear,
+  		creatorImage: req.body.creatorImage
+  	}
   })
 });
 
