@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGOOSE_URL || 'mongodb://localhost:27017/mongoose-practice', { useNewUrlParser: true });
 
 // TODO: Require your other models, and export them
+const db = require('../models');
 module.exports.Museum = require('./museum');
 module.exports.Piece = require('./piece');
 
