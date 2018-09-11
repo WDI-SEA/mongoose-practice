@@ -7,3 +7,9 @@
 	text-align: center;
 	margin: 20px 0;
 }
+
+.customer-fieldset {
+	border: 1px solid #333;
+	padding: 20px;
+	margin-bottom: 15px;
+}
