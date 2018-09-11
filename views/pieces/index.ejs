@@ -1,13 +1,15 @@
 <h2 class="text-center">Pieces List</h2>
 
-<!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all pieces</p>
-<p>In parentheses, show the name of the museum it is located in</p>
-<p>The name should be a link to the piece show page</p>
-
-<h3>For example</h3>
-
-<p><a href="/pieces/<%='the_actual_id_goes_here'%>">Mona Lisa</a> (The Louvre - Paris)</p>
-
-<p><a href="/pieces/<%='the_actual_id_goes_here'%>">Night's Watch</a> (Rijksmuseum - Amsterdam)</p>
-
+<%if(pieces && pieces.length > 0) {%>
+	<%pieces.forEach(p => {%>
+			<div>
+				<a href="/pieces/<%= p.id%>"><%= p.name%></a>
+				(<%= p.museum.name%> &mdash; <%= p.museum.city%>)
+			</div>
+	<%});%>
+<%} else {%>
+		<h3>No pieces exist</h3>
+		<p>
+			Add a new piece at the <a href="/pieces/new">Piece Registration Page</a>
+		</p>
+<%}%>

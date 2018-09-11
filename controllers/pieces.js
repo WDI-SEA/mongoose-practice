@@ -4,25 +4,66 @@ const express = require('express');
 // Declare router
 const router = express.Router();
 
+// Declare reference to models
+const db = require('../models');
+
+
+// Declare routes
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+	db.Piece.find()
+	.populate('museum')
+	.then(pieces => {
+  	res.render('pieces/index', {pieces: pieces});		
+	})
+	.catch(err => {
+		console.log(err);
+		res.render('error');
+	});
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+	db.Piece.create({
+		name: req.body.name,
+		image: req.body.image,
+		museum: req.body.museum,
+		creator: {
+			firstname: req.body.creatorfirstname,
+			lastname: req.body.creatorlastname,
+			image: req.body.creatorimage,
+			birthyear: req.body.creatorbirthyear,
+			deathyear: req.body.creatordeathyear
+		}
+	})
+	.then(result => {
+		res.redirect(`/pieces/${result.id}`);
+	})
+	.catch(err => {
+		console.log(err);
+		res.render('error');
+	});
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+	db.Museum.find()
+	.then(museums => {
+  	res.render('pieces/new', {museums: museums});		
+	})
+	.catch(err => {
+		console.log(err);
+		res.render('error');
+	});
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+	db.Piece.findById(req.params.id)
+	.populate('museum')
+	.then(piece => {
+		res.render('pieces/show', {piece: piece});
+	})
+	.catch(err => {
+		console.log(err);
+		res.render('error');
+	});
 });
 
 module.exports = router;
