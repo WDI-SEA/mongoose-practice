@@ -56,6 +56,7 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Piece.findById(req.params.id)
+  .populate('museum')
   .then(piece => {
 	res.render('pieces/show', { piece: piece });
   })
