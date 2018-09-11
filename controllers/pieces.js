@@ -10,7 +10,9 @@ const db = require('../models');
 // Declare routes
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
+  
   db.Piece.find()
+  .populate('museum')
   .then(pieces => {
   	 res.render('pieces/index', { pieces: pieces });
   })
