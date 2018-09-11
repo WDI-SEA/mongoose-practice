@@ -1,3 +1,25 @@
 <h2 class="text-center text-primary">Register a New Museum</h2>
 
 <!-- TODO: Add a form for making a new museum. Should post to /museums -->
+<form action='/museums' method="POST">
+		<div>
+				<div>
+					<label for='name'>Museum Name</label>
+					<input type='text' id='name' name='name' required>
+				</div>
+				<div>
+					<label for='city'> City</label>
+					<input type='text' id='city' name='city'>
+				</div>
+				<div>
+					<label for='country'>Country</label>
+					<input type='text' id='country' name='country'>
+				</div>
+				<div>
+					<label for='image'>Image</label>
+					<input type='text' id='image' name='image'>
+				</div>
+		
+			   <button type="submit">Add Museum</button>
+		</div>
+	</form>

@@ -1,3 +1,43 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action='/pieces' method="POST">
+		<div>
+				<div>
+					<label for='name'>Piece Name</label>
+					<input type='text' id='name' name='name' required>
+				</div>
+				<div>
+					<label for='firstname'>Creator First Name</label>
+					<input type='text' id='firstname' name='firstname'>
+				</div>
+				<div>
+					<label for='lastname'>Creator Last Name</label>
+					<input type='text' id='lastname' name='lastname'>
+				</div>
+				<div>
+					<label for='birth'>Creator Birth Year</label>
+					<input type='text' id='birth' name='birth'>
+				</div>
+				<div>
+					<label for='death'>Creator Death Year</label>
+					<input type='text' id='death' name='death'>
+				</div>
+				<div>
+					<label for='image'>Image</label>
+					<input type='text' id='image' name='image'>
+				</div>
+				<div>	
+					<label for='museum'>Museum</label>
+					<select name="MuseumId">
+						<option value="0"> Select museum </option>
+						<option value="1">Louvre</option>
+						<option value="2">British Museum</option>
+						<option value="3">MoMA</option>
+			
+					</select>
+				</div>
+		
+			   <button type="submit">Add Piece</button>
+		</div>
+	</form>
