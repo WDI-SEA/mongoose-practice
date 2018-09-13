@@ -7,7 +7,7 @@ const museumSchema = new mongoose.Schema({
 	city: String,
 	country: String,
 	image: String
-})
+});
 
 // TODO: Use schema to create model
 

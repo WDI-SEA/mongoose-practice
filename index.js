@@ -10,6 +10,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // TODO: Middleware, etc
+app.use(express.static(__dirname + '/public/'));
 app.use(expressEjsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
 

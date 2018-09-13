@@ -4,25 +4,45 @@ const express = require('express');
 // Declare router
 const router = express.Router();
 
+const db = require('../models');
+
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.Museum.find()
+  .then(museums => {
+
+  res.render('museums/index', { museums: museums });	
+  })
+  .catch(err => {
+  	console.log("ERROR", err);
+  	res.render('error');
+  })
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  console.log(req.body);
+  db.Museum.create(req.body)
+  .then(result => {
+  	res.redirect(`/museums/${result.id}`);
+  })
+  .catch(err => {
+  	console.log("ERROR", err);
+  	res.render('error');
+  })
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   res.render('museums/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
-  res.send('museums/show');
+	db.Museum.findById(req.params.id)
+	.then(museum => {
+		res.render('museums/show', { museum: museum });
+	})
+	 .catch(err => {
+  	console.log("ERROR", err);
+  	res.render('error');
+  })
 });
 
 module.exports = router;

@@ -15,8 +15,8 @@ const creatorSchema = new mongoose.Schema({
 const pieceSchema = new mongoose.Schema({
 	name: String,
 	image: String,
-	location: {type: mongoose.Schema.Types.ObjectId, ref: 'Museum'},
-	creator: [creatorSchema],
+	museum: {type: mongoose.Schema.Types.ObjectId, ref: 'Museum'},
+	creator: creatorSchema
 });
 
 

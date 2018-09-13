@@ -1,2 +1,24 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2><%= piece.name %></h2>
+
+<img alt="pic" width="500px" src="<%=piece.image%>">
+
+<div class="row">
+	<div class="col-6">
+		<h4>Description</h4>
+		<p>
+			<%= piece.name %> is located at <%= piece.museum.name %> in <%= piece.museum.city %>,
+			<%= piece.museum.country%>.
+		</p>
+	</div>
+	<div class="col-6">
+		<h4 class="text-center">About the Creator</h4>
+		<p><%= piece.creator.firstname%> <%= piece.creator.lastname%><p>
+		<p>born <%=piece.creator.birthyear%>
+		<% if (piece.creator.deathyear) {%>
+		died <%=piece.creator.deathyear%>
+		<%}%>
+	</p>
+		<img alt="artist" width="300px" src="piece.creator.image">
+	</div>
+</div>

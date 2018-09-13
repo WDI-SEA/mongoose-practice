@@ -3,41 +3,46 @@
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
 <form action='/pieces' method="POST">
 		<div>
-				<div>
+				<div class="form-group">
 					<label for='name'>Piece Name</label>
-					<input type='text' id='name' name='name' required>
+					<input type='text' id='name' name='name' class="form-control" required>
 				</div>
-				<div>
-					<label for='firstname'>Creator First Name</label>
-					<input type='text' id='firstname' name='firstname'>
-				</div>
-				<div>
-					<label for='lastname'>Creator Last Name</label>
-					<input type='text' id='lastname' name='lastname'>
-				</div>
-				<div>
-					<label for='birth'>Creator Birth Year</label>
-					<input type='text' id='birth' name='birth'>
-				</div>
-				<div>
-					<label for='death'>Creator Death Year</label>
-					<input type='text' id='death' name='death'>
-				</div>
-				<div>
-					<label for='image'>Image</label>
-					<input type='text' id='image' name='image'>
-				</div>
-				<div>	
+					<div class="form-group">
+						<label for='image'>Image</label>
+						<input type='text' id='image' name='image' class="form-control">
+					</div>
+				<div class="form-group">	
 					<label for='museum'>Museum</label>
-					<select name="MuseumId">
-						<option value="0"> Select museum </option>
-						<option value="1">Louvre</option>
-						<option value="2">British Museum</option>
-						<option value="3">MoMA</option>
-			
+					<select name="museum" id="museum" class="form-control">
+						<%museums.forEach(m => {%>
+						<option value="<%= m.id %>"> <%= m.name %> </option>
+						<%});%>
 					</select>
 				</div>
+				<fieldset class ="custom-fieldset">
+					<legend class="custom-legend">Creator</legend>
+					<div class="form-group">
+						<label for='firstname'>First Name</label>
+						<input type='text' id='firstname' name='firstname' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='lastname'>Last Name</label>
+						<input type='text' id='lastname' name='lastname' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='birth'>Birth Year</label>
+						<input type='text' id='birth' name='birth' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='death'>Death Year</label>
+						<input type='text' id='death' name='death' class="form-control">
+					</div>
+					<div class="form-group">
+						<label for='image'>Image</label>
+						<input type='text' id='creatorimage' name='image' class="form-control">
+					</div>
+			</fieldset>
 		
-			   <button type="submit">Add Piece</button>
+			   <input type="submit" class="btn btn-success" value="register piece">
 		</div>
 	</form>
