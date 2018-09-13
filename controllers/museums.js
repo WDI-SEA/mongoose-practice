@@ -8,7 +8,6 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
   db.Museum.find()
   	.then( museums => {
   		console.log('My museums are: ', museums)
@@ -21,7 +20,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   db.Museum.create(req.body)
   	.then( newMuseum => {
   		console.log('SUCCESS!!!!')
@@ -34,14 +32,19 @@ router.post('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   res.render('museums/new');
 });
 
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders museum details
   //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  db.Museum.findById(req.params.id)
+    .then( museum => {
+      res.render('museums/show', { museum: museum })
+    }).catch( err => {
+      console.log(err);
+      res.send(err);
+    })
 });
 
 module.exports = router;

@@ -1,17 +1,22 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h2 class="text-center"><%= museum.name %></h2>
 
-<% newMuseum.forEach(function(museum){%>
-		<div class="card shadow">
-		  <div class="card-body">
-		  	<img src="<%= museum.image %>" />
-		    <h5 class="card-title"><%= museum.name %></h5>
-		    <h6 class="card-subtitle mb-2 text-muted"><%= museum.city %></h6>
-		    <p class="card-text" id="card-location"><%= museum.city %></p>
-		    <a href="/profile/edit/<%= sighting.id %>" class="btn btn-warning">Edit</a>
-		    <a href="/profile/<%= sighting.id %>" id="delete" class="btn btn-danger delete-btn">Delete</a>
-		  </div>
-		</div>
-		<br>
-	<%})%>
+<div class="image-container">
+	<img src="<%= museum.image %>" alt="museum pic" class="reasonable-image-size">
+</div>
+
+<div class="row">
+	<div class="col-6">
+		<h3>Description</h3>
+		<p><%= museum.name %> is located in <%= museum.city %>, <%= museum.country %></p>
+		<p>Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+		</p>
+	</div>
+	<div class="col-6">
+		<h3>Most Famous Pieces</h3>
+		<p>TODO!</p>
+	</div>
+</div>
+
+
+

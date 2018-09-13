@@ -1,0 +1,9 @@
+.reasonable-image-size {
+	max-width: 500px;
+	height: auto;
+}
+
+.image-container {
+	text-align: center;
+	margin: 20px 0;
+}

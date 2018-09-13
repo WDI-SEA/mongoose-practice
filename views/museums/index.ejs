@@ -1,14 +1,10 @@
 <h2 class="text-center">Museums List</h2>
 
-<!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
-
 <% building.forEach(function(museum){%>
 		<div class="card shadow">
 		  <div class="card-body">
-		  	<img src="<%= museum.image %>">
-		    <h5 class="card-title"><%= museum.name %></h5>
+		  	<img src="<%= museum.image %>" width="300px" height="auto">
+		    <h5 class="card-title"><a href="/museums/<%= museum.id %>"><%= museum.name %></a></h5>
 		    <h6 class="card-subtitle mb-2 text-muted"><%= museum.city %></h6>
 		    <p class="card-text" id="card-location"><%= museum.country %></p>
 		  </div>
