@@ -1,3 +1,57 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST" role="form">
+	<div class="form-group">
+		<label for="name">Piece Name:</label>
+		<input type="text" id="name" name="name" placeholder="Name of the piece of art goes here" class="form-control">
+	</div>
+
+	<div class="form-group">
+		<label for="image">Piece Image:</label>
+		<input type="text" id="name" name="image" placeholder="Image url goes here" class="form-control">
+	</div>
+
+	<div class="form-group">
+		<label for="image">Country of Origin:</label>
+		<input type="text" id="originCountry" name="originCountry" class="form-control" placeholder="origin country">
+	</div>
+	
+	<fieldset class="custom-fieldset">
+		<legend class="custom-legend">Arist</legend>
+
+		<div class="form-group">
+	      <label for="creator_firstname">First Name:</label>
+	      <input type="text" id="creator_firstname" name="creator_firstname" class="form-control" placeholder="creator firstname">
+	    </div>
+	    <div class="form-group">
+	      <label for="creator_lastname">Last Name:</label>
+	      <input type="text" id="creator_lastname" name="creator_lastname" class="form-control" placeholder="creator lastname">
+	    </div>
+	    <div class="form-group">
+	      <label for="creator_image">Image:</label>
+	      <input type="text" id="creator_image" name="creator_image" class="form-control" placeholder="creator image">
+	    </div>
+	    <div class="form-group">
+	      <label for="creator_birthyear">Birth Year:</label>
+	      <input type="number" id="creator_birthyear" name="creator_birthyear" class="form-control" placeholder="creator birth year">
+	    </div>
+	    <div class="form-group">
+	      <label for="creator_deathyear">Death Year:</label>
+	      <input type="number" id="creator_deathyear" name="creator_deathyear" class="form-control" placeholder="creator death year">
+	    </div>
+	</fieldset>
+	
+	<div class="form-group">
+		<label for="museum">Museum:</label>
+		<select name="museum" id="museum" class="form-control">
+			<% museums.forEach(m => { %>
+				<option value="<%= m.id%>">
+					<%= m.name %>
+				</option>
+			<% }); %>
+		</select>
+	</div>
+
+  	<button type="submit" class="btn btn-primary">Add Art Piece to Museum</button>
+</form>
