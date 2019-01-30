@@ -35,4 +35,3 @@ db.Museum.create({
   console.log('Error Message', err);
 });
 
-// process.exit();
