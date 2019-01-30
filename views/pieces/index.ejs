@@ -1,5 +1,7 @@
 <h2 class="text-center">Pieces List</h2>
 
 <% pieces.forEach(p => { %>
-  <p><a href="/pieces/<%= p.id %>"><%= p.name %></a> (<%= p.museum.name%> - <%= p.museum.city %>)</p>
+  <p>
+    <a href="/pieces/<%= p.id %>"><%= p.name %></a> (<%= p.museum.name%> - <%= p.museum.city %>)
+  </p>
 <% }) %>

@@ -1,3 +1,23 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h2><%= museum.name%></h2>
+
+<div>
+  <img src="<%= museum.image %>" alt="A picture of <%= museum.name %>">
+</div>
+
+<p>
+  <%= museum.name %> is located in <%= museum.city %>, <%= museum.country %>
+</p>
+<p>Kale chips hell of activated charcoal, raclette knausgaard raw denim copper mug kitsch pickled seitan. Palo santo synth poke gochujang franzen bitters, actually cliche. Salvia pitchfork pinterest DIY ennui organic vape put a bird on it fingerstache cliche swag kitsch. Gastropub authentic bespoke brunch blog man braid heirloom +1, fixie drinking vinegar subway tile chillwave. Jianbing scenester lo-fi fixie master cleanse pug, +1 literally gentrify tacos yuccie.</p>
+
+<h3>Pieces</h3>
+<% if (museum.pieces.length > 0 ) { %>
+  <% museum.pieces.forEach(p => { %>
+    <p>
+      <a href="/pieces/<%= p.id %>"><%= p.name %></a> By <%= p.creator.firstName %> <%= p.creator.lastName %>
+    </p>
+  <% }) %>
+<% } else { %>
+  <p>There's nothing here yet!</p>
+<% } %>
+
