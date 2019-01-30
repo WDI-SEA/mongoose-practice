@@ -1,7 +1,6 @@
 const db = require('./models');
 
 
-
 db.Museum.create({
   name: 'Musée du Louvre',
   city: 'Paris',
@@ -16,11 +15,11 @@ db.Museum.create({
     originCountry: 'Italy',
     museum: result._id,
     creator: {
-      firstname: 'Leonardo',
-      lastname: 'da Vinci',
+      firstName: 'Leonardo',
+      lastName: 'da Vinci',
       image: 'http://www.leonardodavinci.net/images/leonardo-da-vinci.jpg',
-      birthyear: 1452,
-      deathyear: 1519
+      birthYear: 1452,
+      deathYear: 1519
     }
   })
   .then(result => {
