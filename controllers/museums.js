@@ -1,12 +1,22 @@
 // Require needed modules
 const express = require('express');
-
+const mongoose = require('mongoose');
+//Include our models
+const db = require('../models');
 // Declare router
 const router = express.Router();
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  	db.Museum.find()
+  	.then(museums => {
+  		res.send(museums);
+	// res.render('museums/index', {museums: museums});	
+	})
+	.catch(err => {
+		console.log(err);
+		res.status(500).send({ message: 'Server Error'	});
+	});
 });
 
 router.post('/', (req, res) => {
