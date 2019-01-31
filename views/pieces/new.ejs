@@ -13,7 +13,11 @@
 		</div>
 		<div>
 			<label for="museum">Museum: </label>
-			<input id="museum" type="text" name="museum">
+				<select name="museum">
+					<%museum.forEach(function(m){%>
+					<option value="<%=m._id%>"><%=m.name%></option>
+					<%})%>
+			</select>
 		</div>
 		<div>
 			<label for="image">Image URL: </label>

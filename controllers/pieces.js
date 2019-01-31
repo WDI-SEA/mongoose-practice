@@ -46,7 +46,14 @@ router.post('/', (req, res) => {
 
 
 router.get('/new', (req, res) => {
-  res.render('pieces/new');
+   db.Museum.find()
+  .then(museum => {
+  	res.render('pieces/new', {museum : museum});
+  })
+  .catch(err => {
+  	console.log(err);
+  	res.status(500).send({ message: 'Server Error'	});
+  })
 });
 
 // TODO: Replace stub route with page that renders piece details
