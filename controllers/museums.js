@@ -6,23 +6,29 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.Museum.find()
+  .then(museums => {
+    res.render('museums/index', { museums: museums });
+  })
+  .catch(err => {
+    console.log('Error in the /museums/index GET route', err);
+    res.send('ERROR!')
+  })
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  db.Museum.create(req.body)
+  .then(museum => {
+    res.redirect('/museums/')
+  })
+  .catch()
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   res.render('museums/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
   db.Museum.findById(req.params.id)
   .then(museum => {
   	if(museum){
@@ -44,7 +50,6 @@ router.get('/:id', (req, res) => {
   	console.log('Error in GET /museums/id route:', err);
   	res.send('TODO: make an error.ejs');
   })
-  //res.send('museums/show');
 });
 
 module.exports = router;

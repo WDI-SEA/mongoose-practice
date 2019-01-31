@@ -6,7 +6,6 @@ const router = express.Router();
 const db = require('../models');
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
   db.Piece.find()
   .populate('museum')
   .then(pieces => {
@@ -17,23 +16,43 @@ router.get('/', (req, res) => {
   	console.log('Error in GET pieces route:', err);
   	res.send('TODO: Create an error.ejs to render')
   })
-  //res.render('pieces/index');
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+  db.Piece.create({
+    name: req.body.name,
+    image: req.body.image,
+    originCountry: req.body.originCountry,
+    creator: {
+      firstname: req.body.creatorfirstname,
+      lastname: req.body.creatorlastname,
+      image: req.body.creatorimage,
+      birthyear: req.body.creatorbirthyear,
+      deathyear: req.body.creatordeathyear
+    }
+  })
+  .then(piece => {
+    res.send(piece)
+  })
+  .catch(err => {
+    console.log('Error creating new Piece', err);
+    res.send('Error!')
+  })
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
   res.render('pieces/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+  db.Piece.findById(req.params.id)
+  .then(piece => {
+    res.render('pieces/show', { p: piece })
+  })
+  .catch(err => {
+    console.log('Error showing piece page',  err);
+    res.send('Error!')
+  })
 });
 
 module.exports = router;
