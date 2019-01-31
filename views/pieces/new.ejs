@@ -14,8 +14,8 @@
 		<div>
 			<label for="museum">Museum: </label>
 				<select name="museum">
-					<%museum.forEach(function(m){%>
-					<option value="<%=m._id%>"><%=m.name%></option>
+					<% museum.forEach(m => {%>
+					<option value="<%=m.ObjectId%>"><%=m.name%></option>
 					<%})%>
 			</select>
 		</div>
