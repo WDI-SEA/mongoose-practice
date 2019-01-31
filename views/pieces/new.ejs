@@ -1,3 +1,45 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<div class="container">
+	<form method="POST" action="/pieces" class="form-group">
+		<div>
+			<label for="name">Name: </label>
+			<input id="name" type="text" name="name">
+		</div>
+		<div>
+			<label for="originCountry">Origin Country: </label>
+			<input id="originCountry" type="text" name="originCountry">
+		</div>
+		<div>
+			<label for="museum">Museum: </label>
+			<input id="museum" type="text" name="museum">
+		</div>
+		<div>
+			<label for="image">Image URL: </label>
+			<input id="image" type="text" name="image">
+		</div>
+		<h4>Creator</h4>
+		<div>
+			<label for="firstname">First name: </label>
+			<input id="firstname" type="text" name="firstname">
+		</div>
+		<div>
+			<label for="lastname">Last name: </label>
+			<input id="lastname" type="text" name="lastname">
+		</div>
+		<div>
+			<label for="CreatorImage">Creator Image URL: </label>
+			<input id="CreatorImage" type="text" name="CreatorImage">
+		</div>
+		<div>
+			<label for="birthYear">Birth year: </label>
+			<input id="birthYear" type="text" name="birthYear">
+		</div>
+		<div>
+			<label for="deathYear">Death year: </label>
+			<input id="deathYear" type="text" name="deathYear">
+		</div>										
+		<input type="submit" value="Add Piece">
+	</form>
+</div>

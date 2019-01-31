@@ -1,2 +1,12 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2><%=piece.name%></h2>
+
+<div>
+	<img src="<%=piece.image%>">
+</div>
+<h4>Origin Country: <%=piece.originCountry%></h4>
+
+	<h3>Creator Info: </h3>
+<div>
+	<img src="<%=piece.creator.creatorImage%>">
+</div>
+	<h4><%=piece.creator.firstname%> <%=piece.creator.lastname%>(<%=piece.creator.birthYear%>~<%=piece.creator.deathYear%>)</h4>
