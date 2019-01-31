@@ -18,12 +18,24 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  console.log(req.body);
+  db.Museum.create({
+    name: req.body.name,
+    city: req.body.city,
+    country: req.body.country,
+    image: req.body.image
+  })
+  .then(newMuseum=>{
+    res.redirect('/museums');
+  })
+  .catch(err=>{
+    console.log(`There's been an error creating a museum ${err}`)
+    res.render('error');
+  })
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
+  // Page that renders form for adding new museum
   res.render('museums/new');
 });
 

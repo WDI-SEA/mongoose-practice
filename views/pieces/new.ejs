@@ -1,3 +1,35 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
-<!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<div>
+  <form action="/pieces" method="post">
+    <div>
+      <label for="name">Title: </label>
+      <input type="text" name="name" id="name">
+      <label for="originCountry">Country of Origin: </label>
+      <input type="text" name="originCountry" id="originCountry">
+      <label for="image">Image Url: </label>
+      <input type="text" name="image" id="image">
+      <label for="museum">Museum: </label>
+      <select name="Museum" id="museum">
+      <% museums.forEach(m=>{ %>
+        <option value="<%= m._id %>"><%= m.name %></option>
+      <% }) %>
+      </select>
+    </div>
+    <div>
+      <h4>Creator</h4>
+      <label for="creatorFirstName">First Name: </label>
+      <input type="text" name="creatorFirstName" id="creatorFirstName">
+      <label for="creatorLastName">Last Name: </label>
+      <input type="text" name="creatorLastName" id="creatorLastName">
+      <label for="creatorImage">Image Url: </label>
+      <input type="text" name="creatorImage" id="creatorImage">
+      <label for="birthYear">Year of Birth: </label>
+      <input type="text" name="birthYear" id="birthYear">
+      <label for="deathYear">Year of Death (if applicable): </label>
+      <input type="text" name="deathYear" id="deathYear">
+    </div>
+    <input type="submit">
+  </form>
+</div>
+

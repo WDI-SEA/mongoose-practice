@@ -6,7 +6,7 @@ const creatorSchema = new mongoose.Schema({
   firstName: {
     type: String
   },
-  LastName: String,
+  lastName: String,
   Image: String,
   birthYear: Number,
   deathYear: Number

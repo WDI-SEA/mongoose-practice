@@ -1,2 +1,13 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2><%= piece.name%></h2>
+<h5><em>By <%= piece.creator.firstName%> <%= piece.creator.lastName%></em></h3>
+<% if (piece.creator.birthYear) { %>
+  <p><em>(<%= piece.creator.birthYear %>-<%= piece.creator.deathYear %>  )</em></p>
+<% } %>
+
+<div>
+  <img style="max-height: 700px" src="<%= piece.image %>" alt="A picture of <%= piece.name %>">
+</div>
+
+<p>
+  <%= piece.name %> is located at the  <%= piece.museum.name %> in <%= piece.museum.city %>, <%= piece.museum.country %>
+</p>
