@@ -1,3 +1,31 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h2><%= museum.name%></h2>
+
+<div>
+	<img src="<%= museum.imageUrl %>">
+</div>
+<h3>Description</h3>
+<p><%= museum.name %> is located in <%= museum.city %>, <%= museum.country %>.	
+</p>
+<p>
+	Maybe there's a happy little waterfall happening over here. There's nothing wrong with having a tree as a friend. When you buy that first tube of paint it gives you an artist license. Don't forget to tell these special people in your life just how special they are to you. A tree needs to be your friend if you're going to paint him. That's what makes life fun. That you can make these decisions. That you can create the world that you want.
+
+
+</p>
+
+<div>
+	<h3>Most Famous Pieces</h3>
+	<% if (museum.pieces.length > 0) { %>
+		<% museum.pieces.forEach(p => { %>
+		<div>
+			<a href="/pieces/<%= p.id%>">
+				<%= p.name %>
+		</div>
+
+		<% }); %>
+	<% } else { %>
+		<p>Nothing to show yet</p>
+	<% } %>
+</div>
+
+

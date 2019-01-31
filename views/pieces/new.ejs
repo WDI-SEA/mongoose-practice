@@ -1,3 +1,51 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST">
+  <div class="TK">
+    <label for="name">Object d'Art Name:</label>
+    <input type="text" class="TK" name="piece.name" required>
+  </div>
+
+  <div class="TK">
+    <label for="imageUrl">Image (URL):</label>
+    <input type="text" class="TK" id="imageUrl" name="piece.imageUrl">
+  </div>
+
+<div class="TK">
+    <label for="originCountry">Country of origin:</label>
+    <input type="text" class="TK" id="originCountry" name="piece.originCountry">
+  </div>
+
+  <div class="TK">
+    <label for="creator.firstName">Creator first name:</label>
+    <input type="text" class="TK" id="creator.firstName" name="creator.firstName" required>
+  </div>
+
+  <div class="TK">
+    <label for="creator.lastName">Creator last name:</label>
+    <input type="text" class="TK" id="creator.lastName" name="creator.lastName">
+  </div>
+
+  <div class="TK">
+    <label for="creator.imageUrl">Picture of Creator (URL):</label>
+    <input type="text" class="TK" id="creator.imageUrl" name="creator.imageUrl">
+  </div>
+
+  <div class="TK">
+    <label for="creator.birthYear">Year of birth:</label>
+    <input type="text" class="TK" id="creator.birthYear" name="creator.birthYear">
+  </div>
+
+  <div class="TK">
+    <label for="creator.deathYear">Year of death:</label>
+    <input type="text" class="TK" id="creator.deathYear" name="creator.deathYear">
+  </div>
+
+  <div class="TK">
+    <label for="creator.museumRef">Museum where piece is held:</label>
+    <input type="text" class="TK" id="creator.museumRef" name="creator.museum" required>
+  </div>  
+
+  <input type="submit" class="TK">
+</form>

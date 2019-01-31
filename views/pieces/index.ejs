@@ -11,3 +11,11 @@
 
 <p><a href="/pieces/<%='the_actual_id_goes_here'%>">Night's Watch</a> (Rijksmuseum - Amsterdam)</p>
 
+<% pieces.forEach(p => { %>
+<p>
+	<a href="/pieces/<%=p.id %>">
+		<%= p.name %> by <%= p.creator.firstName %> <%= p.creator.lastName %>
+	</a>
+	(<%= p.museum.name %> - <%= p.museum.city %>)
+
+<% }); %>
