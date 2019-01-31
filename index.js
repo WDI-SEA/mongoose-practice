@@ -1,5 +1,6 @@
 // TODO: Require needed node modules
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
 
@@ -10,6 +11,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 // TODO: Middleware, etc
+app.use(cors());
 app.use(expressEjsLayouts);
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -23,5 +25,7 @@ app.get('/', (req, res) => {
 });
 
 // TODO: Listen
-app.listen(3000);
+app.listen(process.env.PORT || 3000, () => {
+	console.log('API is up and running!')
+})
 

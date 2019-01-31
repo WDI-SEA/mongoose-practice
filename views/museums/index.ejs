@@ -1,7 +1,16 @@
 <h2 class="text-center">Museums List</h2>
 
+<div>
+<form method="GET" action="/museums/new">
+	<input type="submit" value="Add new museum">
+</form>
+</div>
+
 <% museums.forEach(function(m){ %>
-	<h2><a href="/museums/show"><%=m.name%></a></h2>
-	<h2><%=m.city%></h2>
-	<h2><%=m.country%></h2>
+	<ul>
+		<h2><a href="/museums/<%=m.id%>"><%=m.name%></a></h2>
+		<h2><%=m.city%></h2>
+		<h2><%=m.country%></h2>
+	</ul>
 <% }) %>
+
