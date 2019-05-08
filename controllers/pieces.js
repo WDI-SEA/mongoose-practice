@@ -6,28 +6,61 @@ const db = require('../models')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  db.Piece.find()
+  db.Piece.find({
+    _id: "5cd2ec68c8262a3f40c8a175"
+  })
+  .populate('Museum')
   .then(found => {
     console.log(found);
-    res.render('pieces/index', {found});
+    // res.redirect('/pieces/new');
+    res.render('pieces/index', {found: found});
   })
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-
-  res.send('STUB - NEW PIECES POST');
+  db.Museum.find({
+    _id: req.body.museum
+  })
+  .then(foundMuseum => {
+    foundMuseum = foundMuseum[0]
+    console.log(req.body.museum);
+    console.log("foundMuseum:");
+    console.log(foundMuseum);
+    db.Piece.create({
+      name: req.body.name,
+      image: req.body.image,
+      museum: req.body.museum,
+      creator: {
+        firstName: req.body.creatorfirstname,
+        lastName: req.body.creatorlastname,
+        image: req.body.creatorimage,
+        birthYear: req.body.creatorbirthyear,
+        deathYear: req.body.creatordeathyear
+      }
+    })
+    .then((created) => {
+      console.log(created);
+      res.redirect('/pieces')
+    })
+  })
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  db.Museum.find()
+  .then(museumsList => {
+    res.render('pieces/new', {museumsList});
+  })
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+  db.Piece.findById(
+    req.params.id
+  )
+  .populate('museum')
+  .then(foundPiece=> {
+    console.log(foundPiece);
+    res.render('pieces/show', {foundPiece:foundPiece});
+  })
 });
 
 module.exports = router;

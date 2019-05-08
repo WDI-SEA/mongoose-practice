@@ -14,5 +14,12 @@
 <h3>For actuals:</h3>
 
 <% found.forEach((each, i) => { %>
-  <p></p>
+  <p><a href="/pieces/<%= each._id %>"><%= each.name %></a></p>
+  <p><%= each.image %></p>
+  <p><%= each.creator.firstName %></p>
+  <p><%= each.creator.lastName %></p>
+  <p><%= each.creator.image %></p>
+  <p><%= each.creator.birthyear %></p>
+  <p><%= each.creator.deathyear %></p>
+  <p><%= each.museum.name %></p>
 <% }) %>
