@@ -24,7 +24,7 @@ const pieceSchema = new mongoose.Schema({
 	creator: creatorSchema
 })
 // TODO: Use Piece schema to create Piece model
-let User = mongoose.model('Piece',PieceSchema)
+let Piece = mongoose.model('Piece',pieceSchema)
 
 
 // TODO: Export Piece Model

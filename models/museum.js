@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Museum Schema
-let MuseumSchema = new mongoose.Schema({
+let museumSchema = new mongoose.Schema({
 	//name, a city, a country, and an image.
 	name:{
 		type: String,
@@ -19,4 +19,3 @@ let MuseumSchema = new mongoose.Schema({
 // TODO: Export Museum Model
 module.exports = mongoose.model('Museum', museumSchema)
 
-module.exports = Museum
