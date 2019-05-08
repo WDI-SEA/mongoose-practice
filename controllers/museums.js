@@ -1,17 +1,30 @@
 // Require needed modules
 const express = require('express');
+const db = require('../models');
 
 // Declare router
 const router = express.Router();
 
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+  db.Museum.find()
+  .then(foundMuseums => {
+    res.render('museums/index', {foundMuseums});
+    // res.send(foundMuseums);
+  })
 });
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  db.Museum.create({
+    name: req.body.name,
+    city: req.body.city,
+    country: req.body.country,
+    image: req.body.image
+  })
+  .then(createdMuseum => {
+    res.send(createdMuseum);
+  })
 });
 
 router.get('/new', (req, res) => {
@@ -22,7 +35,14 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders museum details
   //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  db.Museum.find({
+    _id: req.params.id
+  })
+  .then((foundMuseum) => {
+    let museum = foundMuseum[0];
+    console.log(museum.name);
+    res.render('museums/show', {museum});
+  })
 });
 
 module.exports = router;

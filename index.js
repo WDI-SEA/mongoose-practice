@@ -1,6 +1,7 @@
 // TODO: Require needed node modules
 const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
+const db = require('./models');
 
 // Declare an app variable
 const app = express();
@@ -22,5 +23,4 @@ app.get('/', (req, res) => {
 });
 
 // TODO: Listen
-app.listen(3000);
-
+app.listen(3019);

@@ -11,5 +11,3 @@ mongoose.connect(
 // Make sure to export both your Museum and Piece models!
 module.exports.Museum = require('./museum');
 module.exports.Piece = require('./piece');
-
-

@@ -1,16 +1,21 @@
 // Require needed modules
 const express = require('express');
+const db = require('../models')
 
 // Declare router
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+  db.Piece.find()
+  .then(found => {
+    console.log(found);
+    res.render('pieces/index', {found});
+  })
 });
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
+
   res.send('STUB - NEW PIECES POST');
 });
 
