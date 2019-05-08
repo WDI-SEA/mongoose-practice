@@ -1,5 +1,11 @@
 <h2 class="text-center">Museums List</h2>
 
 <!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
+
+<a href="/museums/new">ADD A MUSEUM!</a>
+<% museums.forEach((m) => { %>
+	<h2><a href="/museums/<%= m._id%>"><%= m.name %></a></h2>
+	<h6><%= m.city %></h6>
+	<h6><%= m.country %></h6>
+	<hr>
+<% }) %>
