@@ -5,24 +5,26 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
-  res.render('museums/index');
+	// TODO: Replace stub route with page that renders list of all museums
+	
+
+	res.render('museums/index');
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+	// TODO: Replace stub route with page that renders form for adding new museum
+	res.send('STUB - NEW MUSEUM POST');
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.render('museums/new');
+	// TODO: Replace stub route with page that renders form for adding new museum
+	res.render('museums/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
-  res.send('museums/show');
+	// TODO: Replace stub route with page that renders museum details
+	//  and a list of pieces that musuem contains
+	res.send('museums/show');
 });
 
 module.exports = router;
