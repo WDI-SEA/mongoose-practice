@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
       creator: {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
-        image: req.body.creatorimage,
+        image: req.body.creator_image,
         birthyear: req.body.birthyear,
         deathyear: req.body.deathyear
         
@@ -47,6 +47,8 @@ router.post('/', (req, res) => {
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
   db.Museum.find()
+  .select({ name: 1 })
+  .exec()
   .then( museums => {
       res.render('pieces/new', { museums });
 
