@@ -8,19 +8,27 @@ const router = express.Router();
 router.get('/', (req, res) => {
   // TODO: Replace stub route with page that renders list of all pieces
   db.Piece.find()
-  .then(museum => {
-    res.send(museum)
+  .then(pieces => {
+    res.render('pieces/index', {
+      pieces
+    })
   })
   .catch( err => {
     console.log('err', err)
-    res.send('Error in GET /books')
+    res.send('Error in GET /pieces')
   })
-  res.render('pieces/index');
 });
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
+  db.Piece.create(req.body)
+  .then(result => {
+    res.redirect('/pieces')
+  })
+  .catch( err => {
+    console.log('err', err)
+    res.send('Error in POST /pieces')
+  })
 });
 
 router.get('/new', (req, res) => {
@@ -31,6 +39,13 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders piece details
   //  and all the info about it's creator and the museum it's located in
+  db.Piece.findbyId(req.params.id)
+  .populate('Museum')
+  .then(foundPiece => {
+    res.render('/piece/show', {
+      foundPiece
+    })
+  })
   res.send('pieces/show');
 });
 

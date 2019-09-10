@@ -17,10 +17,13 @@ let creatorSchema = new mongoose.Schema({
 let pieceSchema = new mongoose.Schema({
   name: String,
   image: String,
-  creator: [creatorSchema]
+  creator: creatorSchema,
+  museum: {
+    type: Schema.Types.ObjectId,
+    ref: 'Museum'
+  }
 })
 // TODO: Export Piece Model
-module.exports = mongoose.model('Creator', creatorSchema)
 module.exports = mongoose.model('Piece', pieceSchema)
 
 // NOTE: You don't need to worry about Creator schema. You don't need to

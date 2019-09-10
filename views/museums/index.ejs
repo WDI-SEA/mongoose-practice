@@ -1,5 +1,12 @@
 <h2 class="text-center">Museums List</h2>
 
-<!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
+<% if (museums) { %>
+    <% museums.forEach(museum => { %>
+      <div>
+        <h2><%= museum.name %></h2>
+        <p><%= museum.city %></p>
+        <p><%= museum.country %></p>
+        <img src="<%= museum.image %>" alt="art">
+      </div>
+    <% }) %>
+<% } %>
