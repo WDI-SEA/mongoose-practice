@@ -5,5 +5,7 @@
 <p>The name should be a link to the museum show page</p>
 
 <% museums.forEach((m) => { %>
-    <h3><a href="/museums/<%= m.id %><%= m.name %></a></h3>
+    <h3>
+        <a href="/museums/<%= m._id %>"><%= m.name %></a>
+    </h3>
 <% }) %>
