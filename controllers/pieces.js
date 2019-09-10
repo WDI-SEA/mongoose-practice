@@ -64,8 +64,11 @@ router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders piece details
   //  and all the info about it's creator and the museum it's located in
   db.Piece.find(req.params.id)
+  .populate('museum')
   .then(result => {
-    res.render('pieces/show')
+    res.render('pieces/show', {result})
+  }).catch(err => {
+    console.log(err)
   })
 });
 
