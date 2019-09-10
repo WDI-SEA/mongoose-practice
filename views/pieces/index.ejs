@@ -5,6 +5,6 @@
 		if (piece.museum !== undefined) {
 			museumName = piece.museum.name;
 		} %>
-	<img src="<%=piece.image%>" />
+	<img src="<%=piece.image%>" style="max-width: 256px;" />
 	<p><a href="./pieces/<%=piece._id%>"><%=piece.name%></a> (<%=museumName%>)</p>
 <% }) %>

@@ -4,6 +4,6 @@
 <img src="<%=museum.image%>" />
 
 <% pieces.forEach(piece => { %>
-	<img src="<%=piece.image%>" />
-	<p><%=piece.name%> (<%=piece.creator.firstname%> <%=piece.creator.lastname%>)
+	<img src="<%=piece.image%>" style="max-width: 256px;" />
+	<p><%=piece.name%> (<%=piece.creator.firstname%> <%=piece.creator.lastname%>)</p>
 <% }) %>
