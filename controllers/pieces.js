@@ -35,8 +35,10 @@ router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
   db.Museum.find()
   .then(museums => {
-    res.render('pieces/new', 
-    museums);
+    res.render('pieces/new', {
+      museums
+      }
+    );
   })
   .catch(err => {
     console.log(err);
