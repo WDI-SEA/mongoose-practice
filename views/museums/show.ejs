@@ -1,9 +1,10 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
 
 <img src="<%= foundMuseum.image %>" >
 <h2><%= foundMuseum.name %> (<%= foundMuseum.city %>, <%= foundMuseum.country %>)</h2>
 
 <h3>List of Pieces:</h3>
-<p>-Pieces to be listed</p>
+<% pieces.forEach((p) => {
+    <a href="/pieces/<%= p._id %>"><%= p.name %></a>
+    (<%= p.museum.name %> - <%= p.museum.city %>, <%= p.museum.country %>)
+})>

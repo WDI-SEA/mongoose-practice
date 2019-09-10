@@ -45,6 +45,7 @@ router.get('/:id', (req, res) => {
   //  and a list of pieces that musuem contains
   db.Museum.findById(req.params.id)
   .then(foundMuseum => {
+      db.Piece.find({museum: foundMuseum._id})
       res.render('museums/show', { foundMuseum })
   })
   .catch(err => {
