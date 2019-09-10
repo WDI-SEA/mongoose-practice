@@ -28,7 +28,7 @@ const pieceSchema = new mongoose.Schema({
 })
 
 // TODO: Use Piece schema to create Piece model
-const pieceModel = mongoose.Model('Piece', pieceSchema);
+const pieceModel = mongoose.model('Piece', pieceSchema);
 // TODO: Export Piece Model
 module.exports = pieceModel;
 

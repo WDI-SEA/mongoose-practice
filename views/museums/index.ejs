@@ -3,3 +3,9 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <p>TODO: Add a forEach loop and show the names of all museums</p>
 <p>The name should be a link to the museum show page</p>
+<%museums.forEach(m => { %>
+    <h2><%=m.name%></h2>
+    <a href="/museums/<%=m._id%>">Details</a>
+    <h4><%=m.city%>,<%=m.country%></h4>
+    <img src="<%= m.image%>"
+<%})%>

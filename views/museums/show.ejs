@@ -1,3 +1,23 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <h2>TODO: Show a specific Museum</h2>
 <p>Show a list of pieces in this museum</p>
+
+<div>
+    <h1><%= foundmuseum.name%></h1>
+    <p><%= foundmuseum.city%>, <%= foundmuseum.country%></p>
+    <img src="<%= foundmuseum.image%>">
+</div>
+
+<h2>Art Pieces</h2>
+<% if(pieces.length > 0) {%>
+    <%pieces.forEach(p=> {%>
+        <div>
+            <h2><%=p.name%></h2>
+            <img src="<%=p.image%>">
+            <h3>Creator:</h3>
+            <p><%= p.creator.firstname%> <%= p.creator.lastname%></p>
+        </div>
+    <%})%>
+<%} else {%>
+<h3>There are no art piece</h3>
+<%}%>
