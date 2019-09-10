@@ -7,9 +7,11 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
+
   // TODO: Replace stub route with page that renders list of all museums
   db.Museum.find()
   .then(results => {
+    console.log('results:', results)
     res.render('museums/index', {
       museums: results
     })
@@ -23,6 +25,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body)
   // TODO: Replace stub route with page that renders form for adding new museum
   db.Museum.create({
     name: req.body.name,
