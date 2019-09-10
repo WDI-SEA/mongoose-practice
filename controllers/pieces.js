@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  db.Museum.create(req.body)
+  db.Piece.create(req.body)
   .then(() => {
     res.redirect('/pieces');
     }
@@ -33,7 +33,14 @@ router.post('/', (req, res) => {
 
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  db.Museum.find()
+  .then(museums => {
+    res.render('pieces/new', 
+    museums);
+  })
+  .catch(err => {
+    console.log(err);
+  })
 });
 
 router.get('/:id', (req, res) => {

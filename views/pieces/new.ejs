@@ -8,8 +8,12 @@
     <input id="image" type="text" name='image'>
     <label for="creator">Creator</label>
     <input id="creator" type="text" name='creator'>
-    <label for="museum">museum</label>
-    <input id="museum" type="text" name='museum'>
+
+    <select name="" id="">
+        <% museums.forEach(m => { %>
+            <option value="<%=m.id %>"><%= m.name %></option>
+       <% }) %>
+    </select>
     
     <input type="submit">
 </form>
