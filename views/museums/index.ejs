@@ -2,7 +2,12 @@
 
 <% museums.forEach(m => { %>
     <h2> <%= m.name %></h2>
+    <a href="/museums/<%= m.id %>">Details</a>
     <p><%= m.city %></p>
     <p><%= m.country %></p>
     <img src= "<%= m.image %>"" alt="museum image">
 <% }) %>
+
+<% if (museums.length === 0) { %>
+    <h1>No museums to display</h1>
+<% } %>
