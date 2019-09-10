@@ -21,9 +21,20 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  db.Piece.create(req.body)
+  db.Piece.create({
+    name: req.body.name,
+    image: req.body.image,
+    museum: req.body.museum,
+    creator: {
+      firsname: req.body.firstname,
+      lastname: req.body.lastname,
+      birthyear: req.body.birthyear,
+      deathyear: req.body.deathyear,
+      image: req.body.image
+    }
+  })
   .then(result => {
-    res.redirect('/pieces')
+    res.redirect('/pieces/' + result.id)
   })
   .catch( err => {
     console.log('err', err)
@@ -33,7 +44,12 @@ router.post('/', (req, res) => {
 
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  db.Museum.find()
+  .select({ name: 1 })
+  .exec()
+  .then(museums => {
+    res.render('pieces/new' { museums })
+  })
 });
 
 router.get('/:id', (req, res) => {

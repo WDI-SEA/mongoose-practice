@@ -4,7 +4,11 @@
 <form class="" action="/pieces" method="post">
   <input type="text" name="name" placeholder="Piece Name">
   <input type="text" name="image" placeholder="Piece image URL">
-  <input type="text" name="museum" placeholder="Piece Museum">
+  <select name="museum">
+    <% museums.forEach(museum => { %>
+      <option value="<%= museum.id %>"><%= museum.name %></option>
+    <% }) %>
+  </select>
   <input type="text" name="firstname" placeholder="Artist firstname">
   <input type="text" name="lastname" placeholder="Artist lastname">
   <input type="number" name="birthyear" placeholder="Artist birthyear">
