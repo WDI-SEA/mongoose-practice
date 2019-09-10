@@ -46,7 +46,9 @@ router.get('/:id', (req, res) => {
   db.Museum.findById(req.params.id)
   .then(foundMuseum => {
       db.Piece.find({museum: foundMuseum._id})
-      res.render('museums/show', { foundMuseum })
+      .then(pieces => {
+          res.render('museums/show', { foundMuseum, pieces })
+      })
   })
   .catch(err => {
       console.log(err)

@@ -4,7 +4,6 @@
 <h2><%= foundMuseum.name %> (<%= foundMuseum.city %>, <%= foundMuseum.country %>)</h2>
 
 <h3>List of Pieces:</h3>
-<% pieces.forEach((p) => {
-    <a href="/pieces/<%= p._id %>"><%= p.name %></a>
-    (<%= p.museum.name %> - <%= p.museum.city %>, <%= p.museum.country %>)
-})>
+<% pieces.forEach((p) => { %>
+    <a href="/pieces/<%= p._id %>"><%= p.name %></a><br />
+<% }) %>

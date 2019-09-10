@@ -3,7 +3,10 @@ const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
 let creatorSchema = new mongoose.Schema({
-    firstname: String,
+    firstname: {
+        type: String,
+        required: true
+    },
     lastname: String,
     image: String,
     birthyear: Number,
@@ -13,7 +16,10 @@ let creatorSchema = new mongoose.Schema({
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
 let pieceSchema = new mongoose.Schema({
-    name: String,
+    name: {
+        type: String,
+        required: true
+    },
     image: String,
     creator: creatorSchema,
     museum: {
