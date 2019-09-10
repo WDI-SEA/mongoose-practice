@@ -1,2 +1,13 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <h2>TODO: Show a specific Piece</h2>
+
+<img src="<%= foundPiece.image %>">
+<h2><%= foundPiece.name %></h2>
+<h3>(<%= foundPiece.museum.name %> - <%= foundPiece.museum.city %>, <%= foundPiece.museum.country %>)</h3>
+<hr />
+<h3>Created by: </h3>
+<p><%= foundPiece.creator.lastname %>, <%= foundPiece.creator.firstname %></p>
+<p>b. <%= foundPiece.creator.birthyear %> -- d. <%= foundPiece.creator.deathyear %></p>
+<img src="<%= foundPiece.creator.image %>">
+<hr>
+
