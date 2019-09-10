@@ -4,6 +4,13 @@
 
 <% museums.forEach((m) => { %>
     <h3>
-        <a href="/museums/<%= m._id %>"><%= m.name %></a>
-    </h3>
+        <a href="/museums/<%= m._id %>"><%= m.name %></a><br />
+
+        <%= m.city %>, <%= m.country %>
+    </h3><br />
 <% }) %>
+
+<% if(museums.length === 0) { %>
+<h1>}No Museums!</h1>
+
+<% } %>

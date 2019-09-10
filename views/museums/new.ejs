@@ -2,9 +2,13 @@
 
 <!-- TODO: Add a form for making a new museum. Should post to /museums -->
 <form method="POST" action="/museums">
+    <label for="name">Museum Name: </label>
     <input type="text" name="name" placeholder="Enter Museum Name"><br />
+    <label for="city">Museum City: </label>
     <input type="text" name="city" placeholder="What City?"><br />
+    <label for="country">Museum Country: </label>
     <input type="text" name="country" placeholder="What Country?"><br />
+    <label for="image">Museum Image URL: </label>
     <input type="text" name="image" placeholder="Museum Image URL?"><br />
     <input type="submit" value="Add Museum">
 </form>
