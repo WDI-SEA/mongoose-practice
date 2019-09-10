@@ -1,13 +1,9 @@
+ines (6 sloc)  157 Bytes
+    
 <h2 class="text-center">Museums List</h2>
 
-<p>Show a list of pieces in this museum</p>
-<% museums.forEach(m => { %>
-    <h1><%= m.name %></h1>
-    
-    <p><%= m.city %>, <%= m.country %></p>
-    <img src="<%= m.image %>">
-  <%})%>
-
-<!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
+<ul>
+  <% museums.forEach(m => { %>
+  <li><a href="/museums/<%= m._id %>"><%= m.name %></a></li>
+  <% }) %>
+</ul>

@@ -3,12 +3,20 @@
 <!-- TODO: Add a form for making a new museum. Should post to /museums -->
 <form method="post" action="/museums">
     <div>
-      <input type="text" placeholder="Name of Museum" name="name" />
+      <lable>Name of Museum</lable>
+      <input type="text" name="name" />
     </div>
     <div>
-      <input type="text" placeholder="City" name="city" />
+      <label>City</label>
+      <input type="text" name="city" />
     </div>
-    <div><input type="text" placeholder="Country" name="country" /></div>
-    <div><input type="text" placeholder="Image URL" name="image" /></div>
+    <div>
+      <label>Country</label>
+      <input type="text" name="country" />
+    </div>
+    <div>
+      <lable>Image URL</lable>
+      <input type="text" name="image" />
+    </div>
     <button type="submit">Add</button>
   </form>
