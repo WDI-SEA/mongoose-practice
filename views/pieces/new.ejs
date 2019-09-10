@@ -4,16 +4,35 @@
 <form action="/pieces" method="POST">
     <label for="name">Name</label>
     <input id="name" type="text" name='name'>
+    <br>
     <label for="image">Image</label>
     <input id="image" type="text" name='image'>
-    <label for="creator">Creator</label>
-    <input id="creator" type="text" name='creator'>
 
-    <select name="" id="">
+    <br>
+    
+    <select name="museum" id="">
         <% museums.forEach(m => { %>
             <option value="<%=m.id %>"><%= m.name %></option>
        <% }) %>
     </select>
+
+    <br>
+
+    <label for="creator_firstname">firstname</label>
+    <input id="creator_firstname" type="text" name='creator_firstname'>
+    <br>
+    <label for="creator_lastname">lastname</label>
+    <input id="creator_lastname" type="text" name='creator_lastname'>
+    <br>
+    <label for="creator_image">image</label>
+    <input id="creator_image" type="text" name='creator_image'>
+    <br>
+    <label for="creator_birthyear">birthyear</label>
+    <input id="creator_birthyear" type="text" name='creator_birthyear'>
+    <br>
+    <label for="creator_deathyear">deathyear</label>
+    <input id="creator_deathyear" type="text" name='creator_deathyear'>
+
     
     <input type="submit">
 </form>

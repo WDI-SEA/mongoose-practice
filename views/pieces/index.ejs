@@ -3,6 +3,13 @@
 
 <% pieces.forEach(p => { %>
     <h2><%= p.name %></h2>
-    <p><a href="/pieces/<%= p.creator.museum %>"><%= p.name %></a> (The Louvre - Paris)</p>
-  
+    <img src="<%= p.image %>" alt="image">
+    <p><%= p.creator.firstname %>, <%= p.creator.lastname %></p>
+    <img src="<%= p.creator.image %>" alt="creator image">
+    <p>Birth: <%= p.creator.birthyear %></p>
+    <p>At the 
+        <a href="museums/<%= p.museum.id %>">
+            <%= p.museum.name %>
+        </a>
+    </p>
 <% }) %>
