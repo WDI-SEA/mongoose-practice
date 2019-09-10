@@ -21,6 +21,10 @@ app.get('/', (req, res) => {
   res.render('home');
 });
 
+app.get('/*', (req, res) => {
+  res.render('404')
+})
+
 // TODO: Listen
-app.listen(3000);
+app.listen(5000);
 

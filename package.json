@@ -19,9 +19,10 @@
   "homepage": "https://github.com/WDI-SEA/mongoose-practice#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "init": "^0.1.2",
     "mongoose": "^5.4.7"
   }
 }
