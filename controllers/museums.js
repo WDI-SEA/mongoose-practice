@@ -30,7 +30,14 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders museum details
   //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  db.Museum.findById(req.params.id)
+  .then(foundMuseum => {
+      res.render('museums/show', { foundMuseum })
+  })
+  .catch(err => {
+      console.log(err)
+      res.send('Error in GET /musems/show route')
+  })
 });
 
 module.exports = router;
