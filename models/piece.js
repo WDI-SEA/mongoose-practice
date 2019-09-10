@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
 let creatorSchema = new mongoose.Schema({
-    fname: String,
-    lname: String,
+    firstname: String,
+    lastname: String,
     image: String,
-    birthyr: Number,
-    deathyr: Number
+    birthyear: Number,
+    deathyear: Number
 })
 
 // TODO: Create Piece Schema
@@ -21,8 +21,8 @@ let pieceSchema = new mongoose.Schema({
         ref: 'Museum'
     }
 })
-// TODO: Use Piece schema to create Piece model
 
+// TODO: Use Piece schema to create Piece model
 // TODO: Export Piece Model
 module.exports = mongoose.model('Piece', pieceSchema)
 
