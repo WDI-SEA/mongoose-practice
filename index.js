@@ -1,26 +1,34 @@
 // TODO: Require needed node modules
-const express = require('express');
-const expressEjsLayouts = require('express-ejs-layouts');
+const express = require('express')
+const expressEjsLayouts = require('express-ejs-layouts')
 
 // Declare an app variable
-const app = express();
+const app = express()
 
 // Set the view engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs')
 
 // TODO: Middleware, etc
-app.use(expressEjsLayouts);
-app.use(express.urlencoded({ extended: false }));
+app.use(expressEjsLayouts)
+app.use(express.urlencoded({ extended: false }))
 
 // Declare controllers
-app.use('/museums', require('./controllers/museums'));
-app.use('/pieces', require('./controllers/pieces'));
+app.use('/museums', require('./controllers/museums'))
+app.use('/pieces', require('./controllers/pieces'))
 
 // Make home route
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home')
 });
 
-// TODO: Listen
-app.listen(3000);
+//Catch-All route
+app.get('*', (req, res) => {
+    res.status(404).send({ message: 'Not Found' })
+})
+
+
+// Listen
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Hear, Here!')
+});
 
