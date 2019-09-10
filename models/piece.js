@@ -33,10 +33,7 @@ let pieceSchema = new mongoose.Schema({
 	image: {
 		type: String
 	},
-	creator: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Creator"
-		},
+	creator: creatorSchema,
 	museum: {
 		type: mongoose.Schema.Types.ObjectId,
 		ref: "Museum"

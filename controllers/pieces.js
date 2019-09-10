@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
   db.Piece.find()
   .populate("museum")
   .then(pieces => {
-  	console.log("PIECES:", pieces);
 	res.render('pieces/index', {
 		pieces });
   })
@@ -20,23 +19,22 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-	console.log("Pieces POST:", req.body);
- db.Piece.create({
- 	name: req.body.name,
- 	creator: db.Creator.create ({
- 		firstname: req.body.creatorfirstname,
- 		lastname: req.body.creatorlastname 
- 	}),
- 	museum: req.body.museum,
- 	image: req.body.image
+	db.Piece.create({
+	 	name: req.body.name,
+	 	creator: {
+	 		firstname: req.body.creatorfirstname,
+	 		lastname: req.body.creatorlastname 
+	 	},
+	 	museum: req.body.museum,
+	 	image: req.body.image
  	})
-  .then(result => {
-  	res.redirect("/pieces");
-  })
-  .catch(err => {
-   	console.log(err);
-  	res.send("Error creating new piece record");
-  })
+	.then(result => {
+		res.redirect("/pieces");
+	})
+	.catch(err => {
+		console.log(err);
+		res.send("Error creating new piece record");
+	})
 });
 
 router.get('/new', (req, res) => {
@@ -52,10 +50,8 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Piece.find({ _id: req.params.id})
-
   .populate("museum")
   .then(([piece]) => {
-  		console.log("PIECE:", piece);
 	  res.render('pieces/show', { piece });  	
   })
   .catch(err => {

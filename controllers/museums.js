@@ -34,8 +34,15 @@ router.get('/new', (req, res) => {
 router.get('/:id', (req, res) => {
   db.Museum.find({ _id: req.params.id})
   .then(([museum]) => {
-  		console.log(museum);
-	  res.render('museums/show', { museum: museum });  	
+  		db.Piece.find({ museum: museum._id })
+  		.then(pieces => {
+			res.render('museums/show', { museum: museum, pieces: pieces });  	
+
+  		})
+  		.catch(err => {
+  			console.log(err);
+  			res.send("Error finding pieces");
+  		})
   })
   .catch(err => {
   	console.log(err);
