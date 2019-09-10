@@ -9,7 +9,7 @@ let creatorSchema = new mongoose.Schema({
     image: String,
     birthyear: Number,
     deathyear: Number,
-    museum: Object_Id
+    
   })
 
 // TODO: Create Piece Schema
@@ -17,7 +17,11 @@ let creatorSchema = new mongoose.Schema({
 let pieceSchema = new mongoose.Schema({
     name: String,
     image: String,
-    creator: creatorSchema
+    creator: creatorSchema,
+    museum: {
+      type: Object_Id,
+      ref: 'Museum'
+    }
   })
   
 
