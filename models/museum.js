@@ -1,3 +1,5 @@
+// One museum has many pieces
+
 // Require Mongoose node module
 const mongoose = require('mongoose');
 

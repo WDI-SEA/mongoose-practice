@@ -1,3 +1,5 @@
+// Each piece has one creator, creator is a subdocument of piece
+
 // Require Mongoose node module
 const mongoose = require('mongoose');
 
