@@ -4,9 +4,22 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
+const creatorSchema = new Schema({
+    firstName: String,
+    lastName: String,
+    imageUrl: String,
+    birthYear: Number,
+    deathYear: Number,
+    }, {
+        timestamps:true
+    }
+);
 
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
+const pieceSchema = new Schema({
+
+});
 
 // TODO: Use Piece schema to create Piece model
 
