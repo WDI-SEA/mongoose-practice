@@ -5,7 +5,10 @@ const mongoose = require('mongoose');
 
 // TODO: Create Museum Schema
 const museumSchema = new museumSchema({
-
+    name: String,
+    city: String,
+    country: String,
+    imageUrl: String
 });
 
 // TODO: Use schema to create model
