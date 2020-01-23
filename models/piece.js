@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
-const creatorSchema = new Schema({
+const creatorSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     imageUrl: String,
@@ -17,7 +17,7 @@ const creatorSchema = new Schema({
 
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
-const pieceSchema = new Schema({
+const pieceSchema = new mongoose.Schema({
     name: String,
     imageUrl: String,
     creator: [creatorSchema],

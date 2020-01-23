@@ -4,7 +4,7 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Museum Schema
-const museumSchema = new museumSchema({
+const museumSchema = new mongoose.Schema({
     name: String,
     city: String,
     country: String,
