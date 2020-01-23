@@ -13,8 +13,18 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.redirect('/museums/index');
+  db.Museum.create({
+    name: req.body.name,
+    city: req.body.city,
+    country: req.body.country,
+    imageUrl: req.body.imageUrl
+  })
+  .then( museum => {
+    res.redirect('/museums');
+  })
+  .catch(err => {
+    res.send('There was an error in POST /museums');
+  })
 });
 
 router.get('/new', (req, res) => {
