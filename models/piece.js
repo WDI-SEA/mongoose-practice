@@ -2,13 +2,34 @@
 const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
+let creatorSchema = new mongoose.Schema({
+    firstname: String,
+    lastname: String,
+    image: {
+        type: String,
+        default: ''
+    },
+    birthyear: String,
+    deathyear: String
+})
 
 // TODO: Create Piece Schema
+let pieceSchema = new mongoose.Schema({
+    name: String,
+    image: {
+        type: String,
+        default: ''
+    },
+    museum: String,
+    creator: [creatorSchema]
+})
 // HINT: include a creator field for using the Creator schema
 
 // TODO: Use Piece schema to create Piece model
+// var Piece = mongoose.model('Piece', pieceSchema)
 
 // TODO: Export Piece Model
+module.exports = mongoose.model('Piece', pieceSchema)
 
 
 // NOTE: You don't need to worry about Creator schema. You don't need to

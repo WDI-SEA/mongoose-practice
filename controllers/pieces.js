@@ -1,5 +1,6 @@
 // Require needed modules
 const express = require('express');
+let db = require('../models/piece')
 
 // Declare router
 const router = express.Router();
