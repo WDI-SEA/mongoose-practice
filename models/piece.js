@@ -18,13 +18,16 @@ const creatorSchema = new Schema({
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
 const pieceSchema = new Schema({
-
+    name: String,
+    imageUrl: String,
+    creator: [creatorSchema]
 });
 
 // TODO: Use Piece schema to create Piece model
 
-// TODO: Export Piece Model
 
+// TODO: Export Piece Model
+mongoose.model('Piece', pieceSchema);
 
 // NOTE: You don't need to worry about Creator schema. You don't need to
 // create a model for it or export it. This is because it lives inside
