@@ -6,15 +6,15 @@ const db = require('../models');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  db.museum.find({}, (err, museums) => {
+  db.Museum.find({}, (err, museums) => {
     if (err) return res.send(err);
-    res.render('museums/index', museums);
+    res.render('museums/index', { museums });
   })
 });
 
 router.post('/', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  res.redirect('/museums/index');
 });
 
 router.get('/new', (req, res) => {

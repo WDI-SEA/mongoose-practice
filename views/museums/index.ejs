@@ -1,6 +1,11 @@
 <h2 class="text-center">Museums List</h2>
 
 <!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
-
+<h3> All museums:</h3>
+<% if (museums.length > 0) { %>
+    <% museums.forEach( museum => { %>
+        <p><%= museum.name %></p>
+    <% }) %>
+<% } else { %>
+    <p>No museums yet!</p>
+<% } %>
