@@ -24,10 +24,10 @@ const pieceSchema = new Schema({
 });
 
 // TODO: Use Piece schema to create Piece model
-
+const Piece = mongoose.model('Piece', pieceSchema);
 
 // TODO: Export Piece Model
-mongoose.model('Piece', pieceSchema);
+module.exports = Piece;
 
 // NOTE: You don't need to worry about Creator schema. You don't need to
 // create a model for it or export it. This is because it lives inside
