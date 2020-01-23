@@ -1,4 +1,4 @@
-// Each piece has one creator, creator is a subdocument of piece
+// Each piece has one creator, creator is a subdocument of piece, each piece is in a museum
 
 // Require Mongoose node module
 const mongoose = require('mongoose');
