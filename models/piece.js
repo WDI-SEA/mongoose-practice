@@ -20,7 +20,8 @@ const creatorSchema = new Schema({
 const pieceSchema = new Schema({
     name: String,
     imageUrl: String,
-    creator: [creatorSchema]
+    creator: [creatorSchema],
+    museum: [{type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}]
 });
 
 // TODO: Use Piece schema to create Piece model
