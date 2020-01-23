@@ -1,5 +1,5 @@
 // Require Mongoose node module
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 // TODO: Create Museum Schema
 
@@ -36,10 +36,10 @@ const mongoose = require('mongoose');
 
 	//display all documents
 	Museum.find(function (err, museums) {
-		if (err) return console.error(err);
-		console.log(museums);
+		if (err) return console.error(err)
+		console.log(museums)
 	  })
 
 })
 
-module.exports = museum;
+module.exports = museum

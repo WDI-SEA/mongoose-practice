@@ -28,7 +28,7 @@ const mongoose = require('mongoose');
 	var pieceSchema = new mongoose.Schema({
 		name: String,
 		imageUrl: String,
-		creator: []
+		creator: creatorSchema
 	  })
 
 	//create model

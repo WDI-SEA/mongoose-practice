@@ -11,6 +11,7 @@ app.set('view engine', 'ejs');
 // TODO: Middleware, etc
 app.use(expressEjsLayouts);
 app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Declare controllers
 app.use('/museums', require('./controllers/museums'));
