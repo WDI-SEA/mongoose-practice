@@ -1,9 +1,11 @@
 <h2 class="text-center">Pieces List</h2>
 
 <!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all pieces</p>
-<p>In parentheses, show the name of the museum it is located in</p>
-<p>The name should be a link to the piece show page</p>
+
+<h1>The Pieces</h1>
+<% pieces.forEach(p => { %>
+    <p><a href="/pieces/<%=p.id %>"><%= p.name %></a> (<%= museums[0].name %>)</p>
+<% }) %>
 
 <h3>For example</h3>
 
