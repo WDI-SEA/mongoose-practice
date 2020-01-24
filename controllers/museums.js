@@ -6,7 +6,6 @@ let db = require('../models')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all museums
   db.Museum.find()
   .then((museums) => {
     res.render('museums/index', {museums});
@@ -17,19 +16,58 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
-  res.send('STUB - NEW MUSEUM POST');
+  console.log(req.body)
+  db.Museum.findOne({
+    name: req.body.name
+  })
+  .then(museum => {
+    if(museum) {
+      window.alert('This museum has already been added.')
+    }
+    db.Museum.create({
+      name: req.body.name,
+      city: req.body.city,
+      country: req.body.country,
+      image: req.body.image
+    })
+    .then(newMuseum => {
+      console.log(`${newMuseum} was added successfully!`)
+      res.redirect('/museums')
+    })
+    .catch(err => {
+      res.send('Error in create')
+      console.log('Error', err)
+    })
+  })
+  .catch(err => {
+    res.send('Error in findOne')
+    console.log('Error', err)
+  })
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   res.render('museums/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  db.Museum.findOne({_id: req.params.id}).
+    populate('Pieces').
+    exec((err, museum) => {
+      if (err) {
+        console.log('Error in db.museum.findONe', err)
+      }
+      console.log(museum)
+      res.render('museums/show', {museum});
+    })
 });
+
+// // Code for museums/show that wasnt working....yet
+// <% museum.piece.forEach((mus) => { %>
+//   <div class="piece-container">
+//       <img src="<%= mus.image %>">
+//       <p><%= mus.name %></p>
+//   </div>
+// <% }) %>
+
 
 module.exports = router;

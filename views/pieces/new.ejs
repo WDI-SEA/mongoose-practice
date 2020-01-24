@@ -1,3 +1,35 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
-<!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form method="POST" action="/pieces">
+    <h4>Piece Information:</h4>
+    <div class="form-group">
+        <label for="name">Name of Work</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="e.g. The Scream">
+    </div>
+    <div class="form-group">
+        <label for="museum">Current Museum</label>
+        <input type="text" name="museum" class="form-control" id="museum">
+    </div>
+    <div class="form-group">
+        <label for="image">Image URL</label>
+        <input type="text" name="image" class="form-control" id="img">
+    </div>
+    <h4>Artist Information:</h4>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" class="form-control" id="firstname" placeholder="e.g. Edvard">
+    </div>
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" class="form-control" id="lastname" placeholder="e.g. Munch">
+    </div>
+    <div class="form-group">
+        <label for="birth">Birth Year</label>
+        <input type="text" name="birth" class="form-control" id="birth" placeholder="e.g. 1863">
+    </div>
+    <div class="form-group">
+        <label for="death">Year of Death</label>
+        <input type="text" name="death" class="form-control" id="death" placeholder="e.g. 1944">
+    </div>
+    <input type="submit" value="Add This Work">
+</form>

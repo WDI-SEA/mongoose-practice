@@ -1,10 +1,7 @@
 <h2 class="text-center">Museums List</h2>
 
-<!-- DELETE CODE BELOW THIS LINE -->
-<p>The name should be a link to the museum show page</p>
-
 <ul>
     <% museums.forEach((museum) => { %>
-        <li><a href="/museums/show/<%= museum.id %>"> <%= museum.name %> </a> </li>
+        <li><a href="/museums/<%= museum.id %>"> <%= museum.name %> </a> <p>(<%=museum.city%>, <%= museum.country%> )</p> </li>
     <% }) %>
 </ul>

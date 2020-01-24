@@ -1,2 +1,9 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<div class="piece-container">
+    <h1><%= piece.name %></h1>
+    <img style="height:650px;width:auto" src="<%= piece.image %>">
+
+    <h3>Aritst Information</h3>
+    <p>Name: <%= piece.creator[0].firstname + ' ' + piece.creator[0].lastname %></p>
+    <p>Birth Year: <%= piece.creator[0].birthyear %></p>
+    <p>Year of Death: <%= piece.creator[0].deathyear %></p>
+</div>

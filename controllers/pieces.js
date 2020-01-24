@@ -1,29 +1,69 @@
 // Require needed modules
 const express = require('express');
-let db = require('../models/piece')
+let db = require('../models')
 
 // Declare router
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+  db.Piece.find()
+  .then(pieces => {
+    res.render('pieces/index', { pieces });
+  })
+  .catch(err => {
+    res.send('Error in find all pieces')
+    console.log('Error in find all pieces', err)
+  })
 });
 
 router.post('/', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
-  res.send('STUB - NEW PIECES POST');
-});
+  console.log(req.body)
+  db.Piece.findOne({
+    name: req.body.name
+  })
+  .then(piece => {
+    if(piece) {
+      window.alert('This work already exists!')
+    }
+    db.Piece.create({
+      name: req.body.name,
+      image: req.body.image
+    })
+    piece.creator.push({
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        birthyear: req.body.birthyear,
+        deathyear: req.body.deathyear
+    })
+    piece.save(err => {
+      if(err) {
+        res.send('Error in piece.save')
+        console.log('Error', err)
+      }
+      else {
+        console.log(`Success, ${piece} was added!`)
+      }
+    })
+  .catch(err => {
+      console.log('Error', err)
+    })
+  })
+})
+
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new piece
   res.render('pieces/new');
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+  db.Piece.findOne({_id: req.params.id})
+  .then((piece) => {
+    res.render('pieces/show', { piece })
+  })
+  .catch(err => {
+    res.send('Error in find One piece')
+    console.log('Error in findOne', err)
+  })
 });
 
 module.exports = router;
