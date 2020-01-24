@@ -1,3 +1,43 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
-<!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST" class="text-left">
+    <h4>Piece Information</h4>
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name"/>
+    </div>
+    <div class="form-group">
+        <label for="image">Image link</label>
+        <input type="text" id="image" name="image"/>
+    </div>
+    
+    <div class="form-group">
+        <h4>What museum is this piece located in?</h4>
+        <% museums.forEach(museum => { %>
+            <label for="<%= museum.name %>"><%= museum.name %></label>
+            <input type="checkbox" id="<%= museum.name %>" name="museum" value="<%= museum._id%>"/>
+        <% }) %>
+        
+    </div>
+
+    <h4>Who created this piece?</h4>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname"/>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname"/>
+    </div>
+    <div class="form-group">
+        <label for="image">Image Link</label>
+        <input type="text" id="image" name="creatorimage"/>
+    </div>
+    <div class="form-group">
+        <label for="birthYear">Birth Year</label>
+        <input type="text" id="birthYear" name="birthYear"/>
+        <label for="deathYear">Death Year</label>
+        <input type="text" id="deathYear" name="deathYear"/>
+    </div>
+    <input type="submit" value="ADD"/>
+    
+
+</form>
