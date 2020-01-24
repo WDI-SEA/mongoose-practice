@@ -31,7 +31,7 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   let id = req.params.id
-  db.Museum.findById(req.params.id).populate('pieces')
+  db.Museum.findById(req.params.id)
   .then(museum => {
     db.Piece.find({ museum: museum._id })
     .then( pieces => {

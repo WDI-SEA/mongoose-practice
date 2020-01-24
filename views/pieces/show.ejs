@@ -1,2 +1,16 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2><%= piece.name %></h2>
+<img src="<%= piece.image %>" alt="<%= piece.name %> image" width=400>
+
+<hr />
+
+<h4>Origin: <%= piece.originCountry %></h4>
+<h4>Museum: <a href="/museums/<%= piece.museum[0]._id%>"><%= piece.museum[0].name %></a></h4>
+
+<hr />
+
+<h5>Creator:</h5>
+<img src="<%= piece.creator[0].image %>" alt="creator image" width=200>
+<p><%= piece.creator[0].firstname %> <%= piece.creator[0].lastname %> (<%= piece.creator[0].birthyear %> - <%= piece.creator[0].deathyear %>)</p>
+
+
