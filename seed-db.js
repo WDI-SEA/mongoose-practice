@@ -1,7 +1,5 @@
 const db = require('./models');
 
-
-
 db.Museum.create({
   name: 'Musée du Louvre',
   city: 'Paris', 

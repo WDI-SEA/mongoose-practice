@@ -6,9 +6,12 @@ const db = require('../models');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  db.Museum.find({}, (err, museums) => {
-    if (err) return res.send(err);
+  db.Museum.find()
+  .then( museums => {
     res.render('museums/index', { museums });
+  })
+  .catch(err => {
+    res.send('There was an error in GET /museums')
   })
 });
 
