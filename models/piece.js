@@ -5,21 +5,19 @@ const mongoose = require('mongoose');
 
 // TODO: Create Creator Schema
 const creatorSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    imageUrl: String,
+    firstname: String,
+    lastname: String, 
+    image: String,
     birthYear: Number,
     deathYear: Number,
-    }, {
-        timestamps:true
-    }
-);
+    });
 
 // TODO: Create Piece Schema
 // HINT: include a creator field for using the Creator schema
 const pieceSchema = new mongoose.Schema({
     name: String,
-    imageUrl: String,
+    image: String,
+    originCountry: String,
     creator: [creatorSchema],
     museum: [{type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}]
 });

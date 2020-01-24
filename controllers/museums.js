@@ -13,12 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  db.Museum.create({
-    name: req.body.name,
-    city: req.body.city,
-    country: req.body.country,
-    imageUrl: req.body.imageUrl
-  })
+  db.Museum.create(req.body)
   .then( museum => {
     res.redirect('/museums');
   })
@@ -32,9 +27,15 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders museum details
-  //  and a list of pieces that musuem contains
-  res.send('museums/show');
+  let id = req.params.id
+  db.Museum.findById(req.params.id).populate('pieces')
+  .then(museum => {
+    console.log(museum)
+    res.render('museums/show', { museum });
+  })
+  .catch(err => {
+    res.send('There was an error in GET /museums/:id');
+  })
 });
 
 module.exports = router;

@@ -8,7 +8,9 @@ const museumSchema = new mongoose.Schema({
     name: String,
     city: String,
     country: String,
-    imageUrl: String
+    image: String,
+    pieces: [{type: mongoose.Schema.Types.ObjectId, ref: 'Piece'}]
+
 });
 
 // TODO: Use schema to create model

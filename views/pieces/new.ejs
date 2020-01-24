@@ -1,3 +1,34 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form method="POST" action="/pieces">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Museum name here"/>
+    </div>
+    <div>
+        <label for="image">Image URL:</label>
+        <input type="text" name="image" placeholder="Image url here"/>
+    </div>
+    <div>
+        <label for="city">Country of Origin:</label>
+        <input type="text" name="originCountry" placeholder="Country of origin here"/>
+    </div>
+    <div>
+        <label for="country">Creator:</label>
+        <input type="text" name="country" placeholder="Country here"/>
+    </div>
+
+    <button type="submit">SUBMIT</button>
+
+</form>
+
+creatorSchema = new mongoose.Schema({
+    firstname: String,
+    lastname: String, 
+    image: String,
+    birthYear: Number,
+    deathYear: Number,
+    });
+
+museum

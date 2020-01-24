@@ -4,7 +4,7 @@ const db = require('./models');
 
 db.Museum.create({
   name: 'Musée du Louvre',
-  city: 'Paris',
+  city: 'Paris', 
   country: 'France',
   image: 'https://theworldismymuseum.files.wordpress.com/2016/07/51.jpg?w=806&h=400&crop=1'
 })
