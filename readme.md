@@ -82,7 +82,16 @@ A museum should have a name, a city, a country, and an image. The stub file look
 const mongoose = require('mongoose');
 
 // TODO: Create Museum Schema
-
+let museumSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true,
+        maxlength: 30
+    },
+    city: String,
+    country: String,
+    image: String
+})
 // TODO: Use schema to create model
 
 // TODO: Export Museum Model
