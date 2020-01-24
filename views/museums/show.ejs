@@ -1,3 +1,9 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+ <h2 class="text-center">Info on this museum!</h2>
+<!-- <p>Show a list of pieces in this museum</p> -->
+<div class="museum">
+    <p>The <strong><%= museum.name %></strong> is located in <%= museum.city %>, <%= museum.country %>.</p>
+    <p>Here is a picture of the <%= museum.name %></p>
+    <img src="<%= museum.image %>">
+</div>
+

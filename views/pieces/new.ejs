@@ -1,3 +1,34 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
-
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<div class="align-items-center">
+    <div class="row text-center">
+        <form method="POST" action="/pieces">
+            <div class="row">
+                <div class="form-group col s4">
+                    <input type="text" class="form-control" id="name" name="name" required>
+                    <label for="name">Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col s4">
+                    <input type="text" class="form-control" id="originCountry" name="originCountry" required>
+                    <label for="originCountry">Country of Origin</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col s4">
+                    <textarea type="text" class="form-control" id="image" name="image"></textarea>
+                    <label for="image">Image</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col s4">
+                    <textarea type="text" class="form-control" id="museum" name="museum"></textarea>
+                    <label for="museum">What Museum Is It At?</label>
+                </div>
+            </div>
+                <button type="submit">Submit</button>
+            </form>
+        </form>
+    </div>
+</div>

@@ -1,2 +1,9 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<h2 class='text-center text-danger'>Here is info on that piece of art!</h2>
+
+<div class='piece'>
+    <p>The <strong><%= piece.name %></strong> is located at <%= piece.museum._id %>!</p>
+    <p>The <%= piece.name %> was created by <%= piece.creator.firstname %> <%= piece.creator.lastname %>.</p>
+    <p>Here is what it looks like</p>
+    <img src="<%= piece.image %>">
+</div>
