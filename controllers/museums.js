@@ -33,11 +33,16 @@ router.get('/:id', (req, res) => {
   let id = req.params.id
   db.Museum.findById(req.params.id).populate('pieces')
   .then(museum => {
-    console.log(museum)
-    res.render('museums/show', { museum });
+    db.Piece.find({ museum: museum._id })
+    .then( pieces => {
+      res.render('museums/show', { museum, pieces });
+    })
+    .catch(err => {
+      res.send('There was an error in GET /museums/:id for pieces');
+    })
   })
   .catch(err => {
-    res.send('There was an error in GET /museums/:id');
+    res.send('There was an error in GET /museums/:id for museums');
   })
 });
 

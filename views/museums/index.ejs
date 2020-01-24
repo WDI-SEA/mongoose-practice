@@ -4,7 +4,7 @@
 <h3> All museums:</h3>
 <% if (museums.length > 0) { %>
     <% museums.forEach( museum => { %>
-        <a href="/museums/<%= museum._id %>"><%= museum.name %> (<%= museum.city %>, <%= museum.country %>)</a>
+        <h4><a href="/museums/<%= museum._id %>"><%= museum.name %> (<%= museum.city %>, <%= museum.country %>)</a></h4>
     <% }) %>
 <% } else { %>
     <p>No museums yet!</p>
