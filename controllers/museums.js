@@ -28,7 +28,6 @@ router.post('/', (req, res) => {
 });
 
 router.get('/new', (req, res) => {
-  // TODO: Replace stub route with page that renders form for adding new museum
   res.render('museums/new');
 });
 
