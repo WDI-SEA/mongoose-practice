@@ -1,34 +1,54 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
-<form method="POST" action="/pieces">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" name="name" placeholder="Museum name here"/>
-    </div>
-    <div>
-        <label for="image">Image URL:</label>
-        <input type="text" name="image" placeholder="Image url here"/>
-    </div>
-    <div>
-        <label for="city">Country of Origin:</label>
-        <input type="text" name="originCountry" placeholder="Country of origin here"/>
-    </div>
-    <div>
-        <label for="country">Creator:</label>
-        <input type="text" name="country" placeholder="Country here"/>
-    </div>
-
-    <button type="submit">SUBMIT</button>
-
-</form>
-
-creatorSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String, 
-    image: String,
-    birthYear: Number,
-    deathYear: Number,
-    });
-
-museum
+<div class="container">
+    <form method="POST" action="/pieces">
+        <h3>Piece info:</h3>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input class="form-control" type="text" name="name" placeholder="Museum name here"/>
+        </div>
+        <div class="form-group">
+            <label for="image">Image URL:</label>
+            <input class="form-control" type="text" name="image" placeholder="Image url here"/>
+        </div>
+        <div class="form-group">
+            <label for="city">Country of Origin:</label>
+            <input class="form-control" type="text" name="originCountry" placeholder="Country of origin here"/>
+        </div>
+        <div class="form-group">
+            <label for="museum">Museum:</label>
+            <p>If you don't see the museum here, go to <a href="/museums/new">add a new museum</a>.</p>
+            <select class="form-control" id="museum" name="museum">
+                <% museums.forEach( museum => { %>
+                    <option value="<%= museum._id %>"><%= museum.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <h3>Creator info:</h3>
+        <div class="form-group">
+            <label for="firstname">First name:</label>
+            <input class="form-control" type="text" name="firstname" placeholder="Creator first name here"/>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last name:</label>
+            <input class="form-control" type="text" name="lastname" placeholder="Creator last name here"/>
+        </div>
+        <div class="form-group">
+            <label for="image">Creator image url:</label>
+            <input class="form-control" type="text" name="image" placeholder="Image url here"/>
+        </div>
+        <div class="form-group">
+            <label for="birthyear">Birth year:</label>
+            <input class="form-control" type="number" name="birthyear" placeholder="Birth Year here"/>
+        </div>
+        <div class="form-group">
+            <label for="deathyear">Death year:</label>
+            <input class="form-control" type="number" name="deathyear" placeholder="Death year here"/>
+        </div>
+    
+        <button type="submit" class="btn btn-primary">Submit</button>
+    
+    </form>
+    <br>
+</div>

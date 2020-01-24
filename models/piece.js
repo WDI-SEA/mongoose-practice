@@ -8,8 +8,8 @@ const creatorSchema = new mongoose.Schema({
     firstname: String,
     lastname: String, 
     image: String,
-    birthYear: Number,
-    deathYear: Number,
+    birthyear: Number,
+    deathyear: Number,
     });
 
 // TODO: Create Piece Schema
@@ -18,7 +18,8 @@ const pieceSchema = new mongoose.Schema({
     name: String,
     image: String,
     originCountry: String,
-    creator: [creatorSchema]
+    creator: [creatorSchema],
+    museum: [{type: mongoose.Schema.Types.ObjectId, ref: 'Museum'}]
 });
 
 // TODO: Use Piece schema to create Piece model

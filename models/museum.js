@@ -9,8 +9,6 @@ const museumSchema = new mongoose.Schema({
     city: String,
     country: String,
     image: String,
-    pieces: [{type: mongoose.Schema.Types.ObjectId, ref: 'Piece'}]
-
 });
 
 // TODO: Use schema to create model
