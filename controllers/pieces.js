@@ -6,8 +6,13 @@ let db = require('../models')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  // TODO: Replace stub route with page that renders list of all pieces
-  res.render('pieces/index');
+  db.Piece.find()
+  .then( pieces => {
+    res.render('pieces/index', { pieces });
+  })
+  .catch(err => {
+    res.send('There was an error in GET /pieces');
+  })
 });
 
 router.post('/', (req, res) => {

@@ -7,6 +7,6 @@
 
 <h3>Pieces at this museum:</h3>
 <% pieces.forEach( piece => { %>
-    <h4><a href="/pieces/<%= piece._id %>"><%= piece.name %></a></h4>
+    <h4><a href="/pieces/<%= piece._id %>"><%= piece.name %> (Origin: <%= piece.originCountry %>)</a></h4>
 <% }) %>
 

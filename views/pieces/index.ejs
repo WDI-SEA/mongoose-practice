@@ -1,9 +1,12 @@
 <h2 class="text-center">Pieces List</h2>
 
 <!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all pieces</p>
-<p>In parentheses, show the name of the museum it is located in</p>
-<p>The name should be a link to the piece show page</p>
-
-<h3>For example</h3>
+<h3> All pieces:</h3>
+<% if (pieces.length > 0) { %>
+    <% pieces.forEach( piece => { %>
+        <h4><a href="/pieces/<%= piece._id %>"><%= piece.name %> (Origin: <%= piece.originCountry %>)</a></h4>
+    <% }) %>
+<% } else { %>
+    <p>No pieces yet!</p>
+<% } %>
 
