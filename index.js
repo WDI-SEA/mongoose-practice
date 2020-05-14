@@ -1,6 +1,7 @@
 // TODO: Require needed node modules
 const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
+let mongoose = require('mongoose')
 
 // Declare an app variable
 const app = express();
