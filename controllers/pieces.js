@@ -20,20 +20,29 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   console.log(req.body)
+  req.body.creator= {
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    image: req.body.museumImage,
+    birthyear: req.body.birthyear,
+    deathyear: req.body.deathyear
+  }
 
-  piece={
+  /* piece={
     name: req.body.name,
     image: req.body.image,
     originCountry: req.body.originCountry,
     museum: req.body.museum,
-    creator:{
+    creator= {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      image: req.body.museumImage
+      image: req.body.museumImage,
+      birthyear: req.body.birthyear,
+      deathyear: req.body.deathyear
     }
-  }
-
-  db.Piece.create(piece)
+  } */
+ // db.Piece.create(piece)
+  db.Piece.create(req.body)
   .then(newPiece=>{
       res.redirect('/pieces')
   })
