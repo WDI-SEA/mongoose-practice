@@ -43,13 +43,26 @@ router.post('/', (req, res) => {
 
 router.get('/new', (req, res) => {
   // TODO: Replace stub route with page that renders form for adding new piece
-  res.render('pieces/new');
+  db.Museum.find()
+  .then(museum => {
+    res.render('pieces/new', {museum});
+  })
+  .catch(err => {
+    console.log(err)
+    res.send('Error')
+  })
 });
 
 router.get('/:id', (req, res) => {
   // TODO: Replace stub route with page that renders piece details
   //  and all the info about it's creator and the museum it's located in
-  res.send('pieces/show');
+  db.Piece.findById(req.params.id)
+  .then((piece) => {
+    res.render('pieces/show', {piece});
+  })
+  .catch(err => {
+    res.send(err)
+  })
 });
 
 module.exports = router;
