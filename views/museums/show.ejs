@@ -1,3 +1,14 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+
+<div class="text-center">
+<h2>Museum</h2>
+<p><%= pieces[0].museum.name %></p>
+<p><%= pieces[0].museum.city %>, <%= pieces[0].museum.country %></p>
+<img src="<%= pieces[0].museum.image %>">
+<h3>Pieces at this museum</h3>
+<%pieces.forEach(p => { %>
+	<div>
+		<%= p.name %>
+	</div>
+<% })%>
+</div>

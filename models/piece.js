@@ -31,7 +31,10 @@ let pieceSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	museum: mongoose.Schema.Types.ObjectId,
+	museum: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Museum"
+	},
 	creator: creatorSchema,
 
 })

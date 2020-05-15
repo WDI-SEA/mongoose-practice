@@ -2,6 +2,7 @@
 const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
 let mongoose = require('mongoose')
+let db = require('./models')
 
 // Declare an app variable
 const app = express();
