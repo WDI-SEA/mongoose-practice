@@ -1,3 +1,49 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+
+<div>
+    <form method='POST' action='/pieces'>
+        <div>
+            <label for="title">Title: </label>
+            <input name="title" type="text">
+        </div>
+        <div>
+            <label for="yearCreated">Year Created: </label>
+            <input name="yearCreated" type="number">
+        </div>
+        <div>
+            <label for="pieceImg">Piece Image URL: </label>
+            <input name="pieceImg" type="text">
+        </div>
+        <div>
+            <label for="creator.firstName">Creator's First Name: </label>
+            <input name="creator.firstName" type="text">
+        </div>
+        <div>
+            <label for="creator.lastName">Creator's Last Name: </label>
+            <input name="creator.lastName" type="text">
+        </div>
+        <div>
+            <label for="creator.birthdate">Creator's Birth Year: </label>
+            <input name="creator.birthdate" type="number">
+        </div>
+        <div>
+            <label for="creator.deceaseDate">Creator's Year of Death: </label>
+            <input name="creator.deceaseDate" type="number">
+        </div>
+        <div>
+            <label for="creator.creatorImg">Creator's Image URL: </label>
+            <input name="creator.creatorImg" type="text">
+        </div>
+        <div>
+            <label for="museum">Select Museum </label>
+            <select name="museum" type="text">
+                <% museumData.forEach(m => {%> 
+                    <option name="museum" value="<%= m._id%>"><%=m.name%></option>
+                <% }) %>
+                </select>
+        </div>
+        <input type="submit">
+    </form>
+</div>

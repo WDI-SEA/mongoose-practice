@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // Connect to Mongo database
 mongoose.connect(
   process.env.MONGO_URL || 'mongodb://localhost:27017/museumexplorer',
-  { useNewUrlParser: true });
+  { useNewUrlParser: true});
 
 // Require your other models, and export them
 // NOTE: Your files can have multiple module.exports statements!
