@@ -1,4 +1,6 @@
-<h2 class="text-center">Museums List</h2>
-<% museums.forEach(m => { %>
+<div class="container">
+    <h2 class="text-center">Museums List</h2>
+    <% museums.forEach(m => { %>
     <li><a href="/museums/<%=m._id%>"><%=m.name%></a></li>
-<% }) %> 
+    <% }) %>
+</div>

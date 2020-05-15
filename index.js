@@ -1,6 +1,7 @@
 // TODO: Require needed node modules
 const express = require('express');
 const expressEjsLayouts = require('express-ejs-layouts');
+const methodOverride = require('method-override')
 
 // Declare an app variable
 const app = express();
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs');
 app.use(expressEjsLayouts);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 
 // Declare controllers
 app.use('/museums', require('./controllers/museums'));

@@ -1,0 +1,64 @@
+<div class="container">
+    <h2 class="text-center text-primary">Edit Info About this Piece</h2>
+    <form method="POST" action="/pieces/<%=piece._id%>/?_method=PUT">
+        <div class="form-group">
+            <label for="name">Piece Name</label>
+            <input type="text" class="form-control" name="name"
+                placeholder="Enter the name of the piece being registered." value="<%=piece.name%>">
+        </div>
+        <div class="form-group">
+            <label for="image">Image of Piece </label>
+            <input type="text" class="form-control" name="image"
+                placeholder="Enter the image URL of the piece being registered." value="<%=piece.image%>">
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <label for="originCountry">Origin Country</label>
+                    <input type="text" class="form-control" name="originCountry" placeholder="Origin Country" value="<%=piece.originCountry%>">
+                </div>
+                <div class="col">
+                    <label for="Museum">Museum</label>
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="inputGroupSelect01" name="museum">
+                            <option>Choose...</option>
+                            <% museums.forEach(m => { %>
+                            <option value=<%=m._id%>><%=m.name%></option>
+                            <% }) %>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <label for="creatorfn">First Name</label>
+                    <input type="text" class="form-control" name="firstname" placeholder="Creator First Name" value="<%=piece.creator.firstname%>">
+                </div>
+                <div class="col">
+                    <label for="creatorln">Last Name</label>
+                    <input type="text" class="form-control" name="lastname" placeholder="Creator Last Name" value="<%=piece.creator.lastname%>">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col">
+                    <label for="creatorby">Birth Year</label>
+                    <input type="number" class="form-control" name="birthyear" placeholder="When was the creator born"value="<%=piece.creator.birthyear%>">
+                </div>
+                <div class="col">
+                    <label for="creatordy">Death Year</label>
+                    <input type="number" class="form-control" name="deathyear" placeholder="When did the creator pass" value="<%=piece.creator.deathyear%>">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="img">Image of creator </label>
+            <input type="text" class="form-control" name="CreatorImage"
+                placeholder="Enter the image URL of the creator being registered." value="<%=piece.creator.image%>">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
