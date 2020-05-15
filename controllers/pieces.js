@@ -61,6 +61,7 @@ router.get('/:id', (req, res) => {
 //GET /:id/edit to render form to update piece information
 router.get('/:id/edit', (req, res) => {
   db.Piece.findById(req.params.id)
+    .populate('museum')
     .then(piece => {
       db.Museum.find()
       .then(museums => {

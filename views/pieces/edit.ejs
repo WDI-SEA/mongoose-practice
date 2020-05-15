@@ -21,9 +21,11 @@
                     <label for="Museum">Museum</label>
                     <div class="input-group mb-3">
                         <select class="custom-select" id="inputGroupSelect01" name="museum">
-                            <option>Choose...</option>
+                            <option selected value="<%=piece.museum._id%>"><%=piece.museum.name%></option>
                             <% museums.forEach(m => { %>
-                            <option value=<%=m._id%>><%=m.name%></option>
+                                <%if (piece.museum._id != m._id) { %>
+                            <option value="<%=m._id%>"><%=m.name%></option>
+                                <% } %>
                             <% }) %>
                         </select>
                     </div>
