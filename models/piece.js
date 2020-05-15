@@ -1,7 +1,7 @@
 // Require Mongoose node module
 const mongoose = require('mongoose');
 
-// TODO: Create Creator Schema
+//  Create Creator Schema
  let creatorSchema = new mongoose.Schema({
      firstname:{
          type:String,
