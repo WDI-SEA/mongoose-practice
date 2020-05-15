@@ -1,0 +1,19 @@
+body {
+ text-align: center;
+}
+
+#museumList {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+#museumList a {
+    color: White;
+    text-decoration: none;
+    font-size: 50px;
+    font-weight: 900;
+}
+
+#museumList a:hover{
+    color: purple;
+}

@@ -7,6 +7,7 @@ const app = express();
 
 // Set the view engine
 app.set('view engine', 'ejs');
+app.use(express.static('static'))
 
 // TODO: Middleware, etc
 app.use(expressEjsLayouts);

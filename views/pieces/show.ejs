@@ -1,7 +1,9 @@
 <!-- DELETE CODE BELOW THIS LINE -->
 <h1> <%=pieces.title%> </h1>
-<p>Title: <%=pieces.title%></p>
-<p>Year Created: <%=pieces.yearCreated%></p>
-<p>Creator: <%=pieces.creator.firstName%> <%=pieces.creator.lastName%></p>
-<p>Born:<%=pieces.creator.birthdate%> <br> Died:<%=pieces.creator.deceaseDate%></p>
-<img src="<%=pieces.pieceImg%>">
+<div class="bg-info" id="piecesList">
+    <p>Title: <%=pieces.title%></p>
+    <p>Year Created: <%=pieces.yearCreated%></p>
+    <p>Creator: <%=pieces.creator.firstName%> <%=pieces.creator.lastName%></p>
+    <p>Born:<%=pieces.creator.birthdate%> <br> Died:<%=pieces.creator.deceaseDate%></p>
+    <img src="<%=pieces.pieceImg%>">
+</div>

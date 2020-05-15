@@ -1,9 +1,10 @@
-<!-- DELETE CODE BELOW THIS LINE -->
 <h2>Art Pieces in <%=museumData.name%>!</h2>
 <% pieces.forEach(p => { %>
-    <p>Title: <%=p.title%></p>
-    <p>Year Created: <%=p.yearCreated%></p>
-    <p>Creator: <%=p.creator.firstName%> <%=p.creator.lastName%></p>
-    <p>Born:<%=p.creator.birthdate%> <br> Died:<%=p.creator.deceaseDate%></p>
-    <img src="<%=p.pieceImg%>">
+    <div class="bg-info" id="piecesList">
+        <p>Title: <%=p.title%></p>
+        <p>Year Created: <%=p.yearCreated%></p>
+        <p>Creator: <%=p.creator.firstName%> <%=p.creator.lastName%></p>
+        <p>Born:<%=p.creator.birthdate%> <br> Died:<%=p.creator.deceaseDate%></p>
+        <img src="<%=p.pieceImg%>">
+    </div>
 <% }) %>

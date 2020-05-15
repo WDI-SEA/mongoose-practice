@@ -41,8 +41,6 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // TODO: Replace stub route with page that renders piece details
-  //  and all the info about it's creator and the museum it's located in
   db.Piece.findOne({_id: req.params.id})
   .then(pieces => {
     db.Museum.findOne({_id: pieces.museum})

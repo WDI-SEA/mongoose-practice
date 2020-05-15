@@ -4,7 +4,8 @@
 
 <% console.log(pieces) %>
 <% pieces.forEach(p => { %>
-    <div>
+    <div class="bg-info" id="piecesList">
+        >
         <a href="pieces/<%=p._id%>"><%=p.title%></a>
         <div>
             <img src="<%=p.pieceImg%>">
