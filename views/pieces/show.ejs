@@ -1,8 +1,12 @@
 
 <h1> <%=pieces.name%> </h1>
-<p>Creator: <%=pieces.creator.firstname%> <%=pieces.creator.lastname%></p>
-<p>Born: <%=pieces.creator.birthyear%></P> 
-<p></p>Died: <%=pieces.creator.deathyear%></p>
-<p></p>Museum: <%=museum.name%></p>
+<h3><%=pieces.creator.firstname%></h3> 
+<h3><%=pieces.creator.lastname%></h3>
+<img src="<%=pieces.creator.imageC%>">
+<p>Born: <strong><%=pieces.creator.birthyear%></strong></P> 
+<p>Died: <strong><%=pieces.creator.deathyear%></strong></p>
+<p></p>Museum: <strong><%=museum.name%></strong></img>
 <img src="<%=pieces.image%>">
+
+<%=pieces.creator%>
 

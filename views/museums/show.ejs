@@ -1,5 +1,8 @@
 <h2><%=museum.name%></h2>
 <% pieces.forEach(p => { %>
-    <p>Name: <%=p.name%></p>
+    <p>Name: <strong><%=p.name%></strong></p>
+    <p>Creator: <strong><%=p.creator.firstname%> <%=p.creator.lastname%></strong></p>
+    <p>Country where it was made: <strong><%=p.originCountry%></strong></p>
+    
     <img src="<%=p.image%>">
 <% }) %>

@@ -2,18 +2,7 @@
 
 <div>
     <form method='POST' action='/pieces'>
-        <div>
-            <label for="name">Name: </label>
-            <input name="name" type="text">
-        </div>
-        <div>
-            <label for="image">Image: </label>
-            <input name="image" type="text">
-        </div>
-        <div>
-            <label for="originCountry">Country Origin: </label>
-            <input name="originCountry" type="text">
-        </div>
+        
         <div>
             <label for="firstame">Creator's First Name: </label>
             <input name="firstname" type="text">
@@ -31,8 +20,8 @@
             <input name="deathyear" type="number">
         </div>
         <div>
-            <label for="imageC">Creator Image: </label>
-            <input name="imageC" type="text">
+            <label for="imagec">Creator Image: </label>
+            <input name="imagec" type="text">
         </div>
         <div>
             <label for="museum">Select Museum </label>
@@ -41,6 +30,18 @@
                     <option name="museum" value="<%= m._id%>"><%=m.name%></option>
                 <% }) %>
                 </select>
+        </div>
+        <div>
+            <label for="name">Name of art work: </label>
+            <input name="name" type="text">
+        </div>
+        <div>
+            <label for="image">Image: </label>
+            <input name="image" type="text">
+        </div>
+        <div>
+            <label for="originCountry">Country Origin: </label>
+            <input name="originCountry" type="text">
         </div>
         <input type="submit">
     </form>

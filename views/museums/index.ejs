@@ -3,8 +3,8 @@
 <div>
     <% museum.forEach(m => { %>
         <div>
-            <a href='/museums/<%=m._id%>'><%=m.name%></a>
             <p><%=m.city%> <%=m.country%></p>
+            <a href='/museums/<%=m._id%>'><%=m.name%></a>
             <img src="<%=m.image%>">
         </div>
     <% }) %>
