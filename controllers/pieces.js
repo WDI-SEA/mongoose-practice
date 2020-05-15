@@ -19,15 +19,15 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body)
+ 
   req.body.creator= {
     firstname: req.body.firstname,
     lastname: req.body.lastname,
-    image: req.body.museumImage,
+    image: req.body.creatorImage,
     birthyear: req.body.birthyear,
     deathyear: req.body.deathyear
   }
-
+  console.log("req.body in post",req.body)
   /* piece={
     name: req.body.name,
     image: req.body.image,
@@ -70,6 +70,26 @@ router.get('/new', (req, res) => {
   
 });
 
+router.get('/:id/edit',(req,res)=>{
+
+  db.Piece.findById(req.params.id)
+  .then(piece=>{
+        db.Museum.find()
+        .then(museums=>{
+          res.render('pieces/edit',{piece, museums})
+        })
+        .catch(err=>{
+          console.log('ERROR in new piece route', err)
+          res.render('error')
+        })
+    })
+    .catch(err=>{
+      console.log('ERROR in new piece route', err)
+      res.render('error')
+    })
+ 
+})
+
 router.get('/:id', (req, res) => {
  
   db.Piece.findById(req.params.id)
@@ -83,6 +103,30 @@ router.get('/:id', (req, res) => {
   })
  
 });
+
+router.put('/:id',(req,res)=>{
+
+    req.body.creator= {
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      image: req.body.creatorImage,
+      birthyear: req.body.birthyear,
+      deathyear: req.body.deathyear
+    }
+    console.log("req.body in put",req.body)
+      db.Piece.updateOne({
+          _id: req.params.id
+      },
+      req.body 
+      )
+      .then(piece => {
+          res.redirect('/pieces/'+req.params.id)
+      })
+      .catch(err => {
+          console.log('you made a boo boo', err)
+      })
+    
+})
 
 router.delete('/:id',(req,res)=>{
   db.Piece.findByIdAndDelete(req.params.id)

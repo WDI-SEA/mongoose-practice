@@ -1,0 +1,52 @@
+<h1>Update Piece Info</h1>
+
+<form method="POST" action="/pieces/<%=piece.id%>?_method=PUT">
+    <label for="name">Name</label>
+    <input type="text"  id="name" name="name" required value="<%=piece.name%> ">
+    
+    <label for="image">Piece Image </label>
+    <input type="text"  id="image" name="image"  value= "<%=piece.image%>">
+    
+    <label for="originCountry">Origin Country</label>
+    <input type="text"  id="originCountry" name="originCountry" value="<%=piece.originCountry%> ">
+    
+    <label for="pic">Creator Picture</label>
+    <input type="text"  id="pic" name="creatorImage" value="<%=piece.creator.image %>">
+
+    <label for="firstname">Creator First Name: </label>
+    <input type="text"  id="creatorFirstName" name="firstname" value="<%=piece.creator.firstname%>" required>
+
+    <label for="lastname">Creator Last Name: </label>
+    <input type="text"  id="creatorLastName" name="lastname" value="<%=piece.creator.lastname%>" required>
+    
+    <label for="birthyear">Creator Birth year: </label>
+    <input type="text"  id="birthyear" name="birthyear" value="<%=piece.creator.birthyear%>">
+
+    <label for="deathyear">Creator Death year: </label>
+    <input type="text"  id="deathyear" name="deathyear" value="<%=piece.creator.deathyear%>">
+
+ 
+    <% let museumName= '' %> 
+    <% museums.forEach(m=> { %> 
+        <% if (m._id.toString()  == piece.museum.toString() ) { %> 
+             <% museumName = m.name %> 
+        <% } %> 
+    <% }) %>
+
+    <% if(museumName) { %> 
+    <p>You previously chose the museum: <%=museumName%> </p> 
+    <% } %> 
+    
+    <div> 
+        <select name="museum" >
+            <option value="" disabled selected>Choose your museum</option>
+        <% museums.forEach(m=> { %> 
+            <option value="<%=m._id%>">
+                <%=m.name %>  
+                </option>
+        <% }) %>  
+        </select>
+    </div>
+
+    <input type="submit"  value="Update Piece">
+</form>
