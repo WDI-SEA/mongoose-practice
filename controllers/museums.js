@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 res.render('museums/index', museum={museum})
   })
   .catch(err => {
-    console.log('It broke', err)
+    console.log('problem', err)
   })
 });
 
