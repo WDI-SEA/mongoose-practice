@@ -8,4 +8,8 @@
 
 <p><a href="/pieces/<%=p._id%>"> <%=p.name%></a> (<%=p.museum.name%>  - <%=p.museum.city%> )</p>
 
+<form method="POST" action="/pieces/<%=p.id%>?_method=DELETE">
+    <input type="submit"  value="Delete Pieces">
+</form>
+
 <% }); %>

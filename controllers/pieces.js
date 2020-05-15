@@ -78,10 +78,23 @@ router.get('/:id', (req, res) => {
     res.render('pieces/show',{piece});
   })
   .catch(err=>{
-    console.log('ERROR in pieces route', err)
+    console.log('ERROR in pieces/:id route', err)
     res.render('error')
   })
  
 });
+
+router.delete('/:id',(req,res)=>{
+  db.Piece.findByIdAndDelete(req.params.id)
+  .then(piece=>{
+    //console.log("deleted piece",piece)
+    res.redirect("/pieces")
+  })
+  .catch(err=>{
+    console.log('ERROR in pieces delete /:id route', err)
+    res.render('error')
+  })
+  
+})
 
 module.exports = router;

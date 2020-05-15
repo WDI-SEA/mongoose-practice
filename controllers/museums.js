@@ -57,4 +57,25 @@ router.get('/:id', (req, res) => {
   
 });
 
+router.delete('/:id',(req,res)=>{
+  db.Piece.deleteMany({museum: req.params.id})
+  .then(pieces=>{
+      db.Museum.findByIdAndDelete(req.params.id)
+      .then(museum=>{
+       // console.log("museum deleted",museum)
+       // console.log("pieces deleted",pieces)
+        res.redirect("/museums")
+      })
+      .catch(err=>{
+        console.log('ERROR in delete museum /: id route', err)
+        res.render('error')
+      })
+  })
+  .catch(err=>{
+    console.log('ERROR in delete museum /: id route', err)
+    res.render('error')
+  })
+
+}) 
+
 module.exports = router;

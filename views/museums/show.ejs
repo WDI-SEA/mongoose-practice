@@ -4,7 +4,7 @@
 <p>Museum City: <%=museum.city  %> </p>
 <p>Museum Country: <%=museum.country  %> </p>
 
-
+<hr/>
 
 <% if(pieces.length!=0) { %>
     <% pieces.forEach(function(p) { %>
@@ -14,5 +14,6 @@
         <h2>Origin Country: <%=p.originCountry  %> </h2>
         <img src=<%=p.image%> alt="museum pieces">
     </div>
+    <hr/>
     <% }) %>
 <% } %>  

@@ -9,5 +9,11 @@
     <p><%=m.city  %> </p>
     <p><%=m.country  %> </p>
     <img src=<%=m.image%> alt="museum">
+
+    <form method="POST" action="/museums/<%=m.id%>?_method=DELETE">
+        <input type="submit"  value="Delete Museum">
+    </form>
+    <hr/>
+
 </div>
  <% }); %>
