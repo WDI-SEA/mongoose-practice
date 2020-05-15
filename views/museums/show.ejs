@@ -1,3 +1,5 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Museum</h2>
-<p>Show a list of pieces in this museum</p>
+<h2><%=museum.name%></h2>
+<% pieces.forEach(p => { %>
+    <p>Name: <%=p.name%></p>
+    <img src="<%=p.image%>">
+<% }) %>
