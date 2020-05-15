@@ -1,2 +1,13 @@
-<!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<div class="container">
+    <img src="<%=piece.image%>" alt="pic of <%=piece.name%>"/>
+    <hr />
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4"><%=piece.name%></h1>
+          <p class="lead"><%=piece.creator.firstname%> <%=piece.creator.lastname%> (<%=piece.creator.birthyear%>-<%=piece.creator.deathyear%>), <em><%=piece.originCountry%></em></p>
+          <p></p>
+        </div>
+      </div>
+</div>
+
+
