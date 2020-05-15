@@ -1,3 +1,62 @@
 <h2 class="text-center text-primary">Add a New Piece</h2>
 
 <!-- TODO: Add a form for making a new piece. Should post to /pieces -->
+<form action="/pieces" method="POST">
+    <div class="museumIndex">
+
+        <div class="newPiece">
+            <div>
+                <h2>Artwork</h2>
+                <div>
+                    <label for="name">Title </label>
+                    <input type="text"  id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="image">Picture URL </label>
+                    <input type="text"  id="image" name="image" >
+                </div>
+                <div>
+                    <label for="originCountry">Country of Origin </label>
+                    <input type="text"  id="originCountry" name="originCountry" >
+                </div>
+            
+        
+                <select name="museum" >
+                    <option value="" disabled selected>Museum</option>
+                <% museums.forEach(m=> { %> 
+                    <option value="<%=m._id%>">
+                        <%=m.name %>  
+                        </option>
+                <% }) %>  
+                </select>
+            </div>
+            <div>
+                <h2>Artist</h2>
+                <div>
+                    <label for="firstname">First Name </label>
+                    <input type="text"  id="creatorFirstName" name="firstname" >
+                </div>
+                <div>
+                    <label for="lastname">Last Name </label>
+                    <input type="text"  id="creatorLastName" name="lastname" >
+                </div>
+                <div>
+                    <label for="creatorPic">Picture URL </label>
+                    <input type="text"  id="creatorPic" name="creatorPic" >
+                </div>
+                <div>
+                    <label for="birthyear">Born </label>
+                    <input type="date"  id="birthyear" name="birthyear" >
+                </div>
+                <div>
+                    <label for="deathyear">Died </label>
+                    <input type="date"  id="deathyear" name="deathyear" >
+                </div>
+            </div>
+        </div>
+        
+    
+            <button class="button" type="submit">Submit</button>
+    </div>
+    
+</form>

@@ -1,5 +1,14 @@
 <h2 class="text-center">Museums List</h2>
 
 <!-- DELETE CODE BELOW THIS LINE -->
-<p>TODO: Add a forEach loop and show the names of all museums</p>
-<p>The name should be a link to the museum show page</p>
+<div class="museumIndex">
+    <% museums.forEach(function(m) { %>
+        <div class="">
+            <a href="/museums/<%=m._id%>"><h2> <%= m.name %></h2></a>
+            <h4>
+                <%=m.city  %>, <%=m.country  %> 
+            </h4>
+            <img src=<%=m.image%> alt="museum">
+        </div>
+    <% }); %>
+</div>

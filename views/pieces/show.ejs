@@ -1,2 +1,20 @@
 <!-- DELETE CODE BELOW THIS LINE -->
-<h2>TODO: Show a specific Piece</h2>
+<div class="pieceShow">
+    <h2><%=piece.name  %>
+    </h2>
+    <img src=<%=piece.image%> alt="museum pieces">
+    
+    <h3>Origin: <%=piece.originCountry %> </h3>
+    <h3>Artist</h3>
+    <div class="museumPiece" style="height: 200px;">
+        <img class="artist" src=<%=piece.creator.image%>  alt="artist">
+        <div>
+           <h4>
+               <%=piece.creator.firstname%>   <%=piece.creator.lastname%>
+           </h4> 
+        <p>Born: <%=piece.creator.birthyear%></p>
+        <p>Died: <%=piece.creator.deathyear%> </p>
+        </div>
+
+    </div>
+</div>

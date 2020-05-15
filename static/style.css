@@ -1,0 +1,80 @@
+body {
+    background-color: rgb(233, 224, 182);
+    text-align: center;
+    font-family: Georgia;
+
+}
+
+a {
+    color: rgb(250, 230, 52);
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.pieceShow {
+    width: 90%;
+    background-color: rgb(32, 32, 32);
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px 0;
+    color: white;
+}
+
+.pieceShow img {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.museumPieces {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    color: white;
+    margin: 10px auto;
+}
+
+.museumPiece {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: rgb(32,32,32);
+    height: 150px;
+    margin: 10px;
+}
+
+.museumPiece img {
+    height: 90%;
+    width: auto;
+}
+
+.pieceShow .artist {
+    width: auto;
+}
+
+.newPiece {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.newPiece div {
+    margin: 5px 20px;
+}
+
+.museumIndex {
+    width: 100%;
+    color: white;
+    background-color: rgb(32,32,32);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.museumIndex img {
+    width: 90%;
+}
+
+.museumIndex div {
+    margin: 20px 0;
+    background-color: rgb(41, 41, 41);
+    padding: 30px 0;
+    border-radius: 5px;
+}
