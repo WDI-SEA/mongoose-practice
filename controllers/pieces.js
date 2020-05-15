@@ -86,7 +86,7 @@ router.put('/:id', (req, res) => {
   }
   db.Piece.findByIdAndUpdate({_id: req.params.id}, {$set: req.body})
   .then(() => {
-    res.redirect('/pieces' + req.params.id)
+    res.redirect('/pieces/' + req.params.id)
   })
   .catch(err => {
     console.log(err)
